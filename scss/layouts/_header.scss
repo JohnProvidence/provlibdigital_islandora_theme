@@ -1,0 +1,46 @@
+header.site-header__wrapper {
+	background-image: url('img/header-texture.jpg');
+	background-repeat: repeat;
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	padding: 1rem;
+
+	.logo__wrapper {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: flex-start;
+		align-items: center;
+
+		a#logo {
+			max-width: 150px;
+			display: inline-block;
+			margin-right: 1rem;
+		}
+
+		.site-name__wrapper {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: flex-start;
+			align-items: center;
+			.library_name {
+				color: #fff;
+				font-family: $semibold;
+				font-size: 2rem;
+				max-width: 150px;
+				line-height: 1.1;
+				margin-right: 2rem;
+			}
+
+			.repository_name {
+				color: $seafoam;
+				font-size: 2rem;
+				font-family: $light;
+				padding-top: 3.5rem;
+				padding-left: 1rem;
+				border-left: solid thin $seafoam;
+			}
+		}
+	}
+}

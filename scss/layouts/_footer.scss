@@ -1,0 +1,223 @@
+footer.site-footer {
+	min-height: 300px;
+	background: #303030;
+	background-image: url('img/footer-texture.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+
+	.site-footer__wrapper {
+		padding: 6rem 1rem 4rem;
+		margin: 0 auto;
+		max-width: 85.375em;
+		min-width: 20em;
+
+		.site-footer__identity {
+			display: -webkit-box;
+			display: -moz-box;
+			display: box;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-flex-flow: row wrap;
+			-moz-flex-flow: row wrap;
+			flex-flow: row wrap;
+			-webkit-box-pack: justify;
+			-mox-box-pack: justify;
+			box-pack: justify;
+			-webkit-justify-content: space-between;
+			-moz-justify-content: space-between;
+			-ms-justify-content: space-between;
+			-o-justify-content: space-between;
+			justify-content: space-between;
+			-ms-flex-pack: justify;
+			margin-bottom: 2rem;
+
+			.site-branding {
+				display: flex;
+				flex-flow: row wrap;
+				
+				.site-footer__library-name {
+					color: #fff;
+					font-family: $semibold;
+					font-size: 2rem;
+					max-width: 150px;
+					line-height: 1.1;
+					margin-right: 2rem;
+				}
+
+				.site-footer__collections-name {
+					color: $seafoam;
+					font-size: 2rem;
+					font-family: $light;
+					padding-top: 3.5rem;
+					padding-left: 1rem;
+					border-left: solid thin $seafoam;
+				}
+			}
+
+			.site-footer__social-icons {
+				align-self: flex-end;
+				margin-top: auto;
+				margin-left: auto;
+
+				a.icon {
+					border: 2px solid #4f4f4f;
+					color: #888;
+					display: inline-block;
+					height: 3rem;
+					width: 3rem;
+					border-radius: 50%;
+					display: inline-block;
+					margin: 1rem .5rem 0;
+					padding-top: 8px;
+					text-align: center;
+					transition: color .6s ease-in;
+					transition: border .6s ease-in;
+
+					&:hover {
+						color: $seafoam;
+						border: 2px solid $seafoam;
+
+						.svg-inline--fa {
+							color: $seafoam;
+						}
+					}
+
+					.svg-inline--fa {
+						width: 1.8em;
+						height: 1.8em;
+					}
+				}
+			}
+		}
+		.site-footer__vitals {
+				margin-top: 2rem;
+				display: -webkit-box;
+				display: -moz-box;
+				display: box;
+				display: -webkit-flex;
+				display: -moz-flex;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-flex-flow: row wrap;
+				-moz-flex-flow: row wrap;
+				flex-flow: row wrap;
+				-webkit-box-pack: justify;
+				-moz-box-pack: justify;
+				box-pack: justify;
+				-webkit-justify-content: space-between;
+				-moz-justify-content: space-between;
+				-ms-justify-content: space-between;
+				-o-justify-content: space-between;
+				justify-content: space-between;
+				-ms-flex-pack: justify;
+				background: #27282a;
+				margin: 2rem 0;
+				opacity: .8;
+				padding: 2rem;
+				width: 100%;
+			}
+	}
+}
+
+.site-footer__vitals {
+	.footer_col {
+		width:calc(33.33% - 1rem);
+		margin: .5rem;
+	}
+
+	.site-footer__vitals__address {
+		color: #fff;
+		font-weight: 600;
+
+		.handicapped {
+			font-weight: 400;
+			color: #888;
+		}
+	}
+
+	.site-footer__vitals__phone {
+		
+		p {
+			margin: 1.5rem 0;
+		}
+
+		a {
+			color: #fff;
+			font-weight: 600;
+		}
+	}
+
+	
+		a.site-footer__vitals__donate.button--primary {
+			background: #31bcad;
+			color: #fff;
+			text-decoration: none;
+			font-size: .9rem;
+			transition: opacity .3s ease-in;
+
+			&:hover {
+				opacity: .8;
+			}
+		}
+
+		.site-footer__vitals__hours {
+			h3 {
+				margin-top: 0;
+				margin-bottom: .5rem;
+				font-size: 1rem;
+				color: #fff;
+			}
+
+			ul.hours_list {
+				li {
+					list-style: none;
+					color: #888;
+
+					strong {
+						color: #fff;
+						width: 30%;
+						margin-right: 1rem;
+						float: left;
+					}
+				}
+
+				li.note {
+					font-style: italic;
+					margin-top: .5rem;
+				}
+			}
+		}
+
+		.site-footer__vitals__map {
+			background-image: url("img/footer-map.png");
+			background-position: bottom left;
+			background-size: cover;
+			height: 400px;
+			max-width: none;
+			position: relative;
+			margin: -2.5rem;
+			max-height: 315px;
+			cursor: pointer;
+		}
+}
+
+.site-footer__legal span {
+	color: #888;
+	font-size: calc(.875em + 0 * 1em);
+	margin-left: .5rem;
+
+	&:after {
+		content: " // ";
+		display: inline-block;
+		margin-left: .5rem;
+	}
+
+	&:last-child {
+		&:after {
+			content: "";
+			display: inline-block;
+		}
+	}
+}

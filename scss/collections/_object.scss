@@ -1,0 +1,93 @@
+.islandora-basic-image-object {
+	.islandora-basic-image-content-wrapper {
+		.islandora-basic-image-content {
+			background-color: transparent;
+			border: solid thin transparent;
+			margin-bottom: 1rem;
+			margin-top: 1rem;
+			overflow: hidden;
+			
+			img {
+				transition: all .3s ease-in-out;
+				
+				&:hover {
+					transform: scale(1.05);
+				}
+			}
+		}
+	}
+	.islandora-basic-image-metadata {
+		.islandora-basic-image-description {
+			font-size: 1.1rem;
+			margin: 1rem 0;
+		}
+		.in-collections-listing {
+			margin: 1rem 0;
+
+			h2 {
+				color: $seafoam;
+				border-bottom: solid thin $adminBlue;
+				margin-bottom: 1rem;
+			}
+
+			ul {
+				li {
+					list-style: none;
+					margin: .5rem;
+				}
+			}
+
+		}
+
+		table {
+			margin-top: 1rem;
+			border-bottom: solid thin $adminBlue;
+			width: 100%;
+
+			tr {
+				td {
+					padding: 1rem;
+					border-bottom: solid thin $adminBlue;
+					
+					&:first-child {
+						background: $adminBlue;
+						border-bottom: solid thin #fff;
+					}
+
+				}
+				&:first-child {
+					th {
+						border-top: solid thin transparent;
+						border-bottom: solid 2px #fff;
+						background: $adminBlue;
+						
+						h3.islandora-obj-details-metadata-title {
+							padding: 1rem;
+
+						}
+					}
+				}
+
+				&:last-child {
+					td {
+						border-bottom: solid thin $adminBlue;
+					}
+				}
+			}
+		}
+	}
+}
+
+/** Datastream Download Buttons **/
+.islandora-basic-image-download-btns__wrapper {
+	margin:1rem 0;
+	border-top: solid thin $adminBlue;
+	padding-top:1rem;
+
+	.btn {
+		display: inline-block;
+		@include btn;
+		margin-top: 1rem;
+		margin-right: 1rem;
+	}
+}

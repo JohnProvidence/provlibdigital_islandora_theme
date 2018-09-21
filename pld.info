@@ -1,0 +1,37 @@
+name = Providence Public Library Digital Repository
+description = ProvLibDigital theme, based on Basic
+screenshot = img/screenshot.png
+core = "7.x"
+base theme = basic
+engine = phptemplate
+
+regions[page_top] = Page Top
+regions[page_bottom] = Page Bottom
+regions[header] = Header
+regions[highlighted] = Highlighted
+regions[help] = Help
+regions[content] = Content
+regions[sidebar_first] = First sidebar
+regions[sidebar_second] = Second sidebar
+regions[footer] = Footer
+regions[footer_col_1]   = Footer Column One
+regions[footer_col_2]	= Footer Column Two
+regions[footer_col_3]	= Footer Column Three
+regions[page_bottom] = Page bottom
+regions[navigation] = Navigation bar
+regions[highlighted] = Highlighted
+regions[pld_collections] = ProvLibDigital Collections
+
+features[] = logo
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = favicon
+features[] = main_menu
+features[] = secondary_menu
+features[] = search
+
+; Stylesheets
+stylesheets[all][] = css/style.css
+
+; Scripts
+scripts[] = js/main.js

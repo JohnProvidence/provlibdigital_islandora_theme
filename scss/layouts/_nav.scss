@@ -1,0 +1,42 @@
+nav#navigation {
+	background: #303030;
+	margin-bottom: 2rem;
+
+	ul.main-menu {
+		text-align: right;
+		li {
+			flex-grow: 1;
+			text-align: center;
+			a {
+				padding: 29.8px 1.9rem 2.3rem;
+				font-family: $semibold;
+				font-size: calc(1em + .125 * (100vw - 30em) / 55);
+				display: inline-block;
+			}
+
+			&:first-child {
+				color: $pink;
+				border-top: solid 7px $pink;
+			}
+
+		}
+	}
+}
+
+.secondary-nav {
+	margin-left: auto;
+	ul#secondary {
+		li {
+			list-style: none;
+			display: inline-block;
+			font-size: .8rem;
+			margin-right: .5rem;
+			padding: .5rem;
+			background: $adminBlue;
+			border-radius: 4px;
+			a {
+				color: $seafoam;
+			}
+		}
+	}
+}

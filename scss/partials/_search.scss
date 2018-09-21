@@ -1,0 +1,12 @@
+/** Islandora Advanced Search **/
+#islandora-solr-advanced-search-forms {
+	overflow: hidden;
+	div.form-type-select {
+		padding:1rem;
+		
+
+		select.form-select {
+			max-width: 90%;
+		}
+	}
+}

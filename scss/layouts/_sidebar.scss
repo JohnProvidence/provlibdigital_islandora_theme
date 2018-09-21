@@ -1,0 +1,8 @@
+aside#sidebar-first {
+	background: $adminBlue;
+	padding: 1rem;
+}
+
+input#edit-submit {
+	@include btn;
+}

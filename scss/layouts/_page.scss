@@ -1,0 +1,56 @@
+body {
+	font-family: $regular;
+	font-size: 16px;
+}
+
+#container, #sidebar-first, #sidebar-second, section#content {
+	&:before {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+
+#container {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-items: top;
+
+	section#content {
+		float: none !important;
+		width:calc(75% - 1rem) !important;
+		margin: .5rem;
+		padding: 1rem;
+		margin-left: .5rem;
+	}
+
+	#sidebar-first {
+		float: none;
+		width: calc(25% - 1rem);
+		margin: .5rem;
+	}
+}
+
+section#content {
+	padding: 1rem;
+}
+
+
+
+
+
+.button--primary {
+	cursor: pointer;
+	display: inline-block;
+	font-weight: 700;
+	padding: .625em 3em .5em;
+	text-align: center;
+	text-transform: uppercase;
+}
+
