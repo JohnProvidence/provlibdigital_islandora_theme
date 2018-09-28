@@ -91,3 +91,25 @@
 		margin-right: 1rem;
 	}
 }
+
+/** Islandora Compound Batch Display **/
+.block-islandora-compound-object {
+	.islandora-compound-prev-next {
+		a {
+			color: $seafoam;
+		}
+		.islandora-compound-thumbs {
+			border-top: solid thin transparent;
+			
+			.islandora-compound-thumb {
+				display: line-block;
+				width: 200px;
+				max-width: none !important;
+				border-bottom: none;
+				border: solid thin $adminBlue;
+				padding: .5rem;
+				margin-right: .5rem;
+			}
+		}
+	}
+}
