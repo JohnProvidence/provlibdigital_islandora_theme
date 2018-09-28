@@ -7,8 +7,8 @@ div.tabs {
 	}
 	ul.primary {
 		margin-left: 0;
-		height: 26px;
 		border-bottom: solid thin $orange;
+		background: transparent;
 		&:after {
 			content:"";
 			display: block;
@@ -21,12 +21,30 @@ div.tabs {
 			border-right: solid thin $orange;
 			border-bottom: none;
 			padding: .5rem 1rem;
+			background: #fff;
+			margin-right: 1rem;
+			transition: all .3s ease-in-out;
 
 			a {
 				border: none;
 				background: transparent !important;
 				color: $orange;
 				margin: 0;
+				.tab {
+					background: none;
+					border: none;
+
+					&:hover {
+						border: none;
+					}
+				}
+			}
+
+			&:hover {
+				background: $orange;
+				a {
+					color: #fff;
+				}
 			}
 		}
 
@@ -34,6 +52,18 @@ div.tabs {
 			background: $orange;
 			a {
 				color: #fff;
+			}
+
+			&:hover {
+				background: #fff;
+				
+				a {
+					color: $orange;
+
+					.tab {
+						border: none;
+					}
+				}
 			}
 		}
 	}
