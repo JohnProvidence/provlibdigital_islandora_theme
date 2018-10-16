@@ -13,8 +13,4 @@ function pld_preprocess_page(&$variables, $hook) {
   $variables['dc'] = t('Digital Collections');
 }
 
-function pld_preprocess_islandora_basic_collection_wrapper__islandora_sp_basic_image_collection(&$variables) {
-	$variables['template_preprocess_function_variable'] = "TESTING THE TEMPLATE PREPROCESS FUNCTION, UNIQUE TO BASIC IMAGE";
-}
-
 ?>

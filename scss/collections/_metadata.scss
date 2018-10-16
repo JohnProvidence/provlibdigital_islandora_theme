@@ -1,0 +1,20 @@
+
+fieldset.islandora-metadata {
+	border: solid thin transparent;
+
+	.fieldset-wrapper {
+		dl {
+			dt, dd {
+				text-align: left;
+				border-top: solid thin $adminBlue;
+				padding: 1rem;
+			}
+			dt {
+				color: $orange;
+			}
+			dd {
+				border-left: solid thin $adminBlue;
+			}
+		}
+	}
+}
