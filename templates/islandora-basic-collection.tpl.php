@@ -15,10 +15,8 @@ $parent = islandora_get_parents_from_rels_ext($islandora_object);
       <div class="islandora-basic-collection-object islandora-basic-collection-list-item clearfix">
         <dl class="<?php print $associated_object['class']; ?>">
             <dt>
-            <?php if(!empty($parent)): ?>
-             <a href="/islandora/object/<?php print $associated_object['pid']; ?>">
-                <img src="/islandora/object/<?php print $associated_object['pid']; ?>/datastream/MEDIUM_SIZE/view" class="image-datastream" />
-             </a>
+            <?php if(isset($associated_object['medium_size_link'])): ?>
+             <?php print $associated_object['medium_size_link']; ?>
            <?php else: ?>
              <?php if (isset($associated_object['thumb_link'])): ?>
                 <?php print($associated_object['thumb_link']); ?>
