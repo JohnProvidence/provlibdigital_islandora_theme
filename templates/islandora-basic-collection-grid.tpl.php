@@ -7,8 +7,6 @@
  * @TODO: needs documentation about file and variables
  */
 $parent = islandora_get_parents_from_rels_ext($islandora_object);
-
-var_dump($associated_objects_array['object']);
 ?>
 
 <div class="islandora islandora-basic-collection">
