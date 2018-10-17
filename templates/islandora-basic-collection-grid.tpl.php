@@ -29,7 +29,6 @@ $parent = islandora_get_parents_from_rels_ext($islandora_object);
          </dt>
         <dd class="islandora-basic-collection-caption">
         	<h4 class="title"><?php print filter_xss($value['title_link']); ?></h4>
-        	<span class="pid">Collection PID: <?php print filter_xss($value['pid']); ?></span>
         </dd>
     </dl>
   <?php endforeach; ?>

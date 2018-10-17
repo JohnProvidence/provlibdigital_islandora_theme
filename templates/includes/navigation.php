@@ -28,6 +28,13 @@ if( $main_menu || $secondary_menu ):
 		?>
 	
 	</div>
+
+<?php if($page['collections_search']): ?>
+	<div class="search__wrapper">
+		<?php print render($page['collections_search']); ?>
+	</div>
+<?php endif; ?>
+
 </nav>
 
 <?php

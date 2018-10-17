@@ -1,9 +1,11 @@
 nav#navigation {
 	background: #303030;
-	margin-bottom: 2rem;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: flex-start;
 
 	ul.main-menu {
-		text-align: right;
 		li {
 			flex-grow: 1;
 			text-align: center;
@@ -19,6 +21,15 @@ nav#navigation {
 				border-top: solid 7px $pink;
 			}
 
+		}
+	}
+
+	.search__wrapper {
+		margin-left: auto;
+		.search-bar__wrapper {
+			h3.title {
+				display: none;
+			}
 		}
 	}
 }

@@ -12,9 +12,9 @@
 	<div id="main">
 		<div id="container">
 			<section id="content">
-				<?php if (/*$breadcrumbs ||*/ $title || $messages || $tabs || $action_links): ?>
+				<?php if ($breadcrumb || $title || $messages || $tabs || $action_links): ?>
 
-					<?php // print $breadcrumb; ?>
+					<?php  print $breadcrumb; ?>
 
 					<?php if ($page['highlighted']) : ?>
 						<div id="highlighted">

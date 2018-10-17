@@ -11,6 +11,7 @@ regions[header] = Header
 regions[highlighted] = Highlighted
 regions[help] = Help
 regions[content] = Content
+regions[collections_search] = Collections Search
 regions[sidebar_first] = First sidebar
 regions[sidebar_second] = Second sidebar
 regions[footer] = Footer
@@ -20,7 +21,6 @@ regions[footer_col_3]	= Footer Column Three
 regions[page_bottom] = Page bottom
 regions[navigation] = Navigation bar
 regions[highlighted] = Highlighted
-regions[pld_collections] = ProvLibDigital Collections
 
 features[] = logo
 features[] = node_user_picture
