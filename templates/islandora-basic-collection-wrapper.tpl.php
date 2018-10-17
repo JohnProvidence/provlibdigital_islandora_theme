@@ -9,7 +9,6 @@
  * @TODO: needs documentation about file and variables
  */
 ?>
-
 <div class="islandora-basic-collection-wrapper">
    <span class="islandora-basic-collection-display-switch">
       <ul class="links inline">
@@ -23,7 +22,11 @@
   <div class="islandora-basic-collection__collection-info">
   <?php 
     if(!empty($dc_array['dc:title']['value'])): ?>
-  <h2><?php print $dc_array['dc:title']['value']; ?></h2>
+      <?php if($dc_array['dc:title']['value'] == 'Top-level Collection'): ?>
+        <h2>Browse Collections</h2>
+      <?php else: ?>
+       <h2><?php print $dc_array['dc:title']['value']; ?></h2>
+     <?php endif; ?>
   <?php
     endif;
   ?>

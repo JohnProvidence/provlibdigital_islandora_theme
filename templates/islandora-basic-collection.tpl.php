@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * islandora-basic-collection.tpl.php
@@ -6,17 +7,16 @@
  * @TODO: needs documentation about file and variables
  */
 ?>
-<div style="border: red 10px solid;">
-<h1>TESTING TEMPLATE OVERRIDE, UNIQUE TO BASIC IMAGE COLLECTION</h1>
+
 <div class="islandora islandora-basic-collection">
     <?php $row_field = 0; ?>
     <?php foreach($associated_objects_array as $associated_object): ?>
       <div class="islandora-basic-collection-object islandora-basic-collection-list-item clearfix">
         <dl class="<?php print $associated_object['class']; ?>">
             <dt>
-              <?php if (isset($associated_object['thumb_link'])): ?>
-                <?php print $associated_object['thumb_link']; ?>
-              <?php endif; ?>
+             <a href="/islandora/object/<?php print $associated_object['pid']; ?>">
+              <img src="/islandora/object/<?php print $associated_object['pid']; ?>/datastream/MEDIUM_SIZE/view" class="image-datastream" />
+             </a>
             </dt>
             <dd class="collection-value <?php print isset($associated_object['dc_array']['dc:title']['class']) ? $associated_object['dc_array']['dc:title']['class'] : ''; ?> <?php print $row_field == 0 ? ' first' : ''; ?>">
               <?php if (isset($associated_object['thumb_link'])): ?>
@@ -32,6 +32,4 @@
       </div>
     <?php $row_field++; ?>
     <?php endforeach; ?>
-</div>
-
 </div>
