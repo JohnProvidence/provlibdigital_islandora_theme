@@ -6,6 +6,7 @@
  *
  * @TODO: needs documentation about file and variables
  */
+$parent = islandora_get_parents_from_rels_ext($islandora_object);
 ?>
 
 <div class="islandora islandora-basic-collection">
@@ -14,9 +15,15 @@
       <div class="islandora-basic-collection-object islandora-basic-collection-list-item clearfix">
         <dl class="<?php print $associated_object['class']; ?>">
             <dt>
+            <?php if(!empty($parent)): ?>
              <a href="/islandora/object/<?php print $associated_object['pid']; ?>">
-              <img src="/islandora/object/<?php print $associated_object['pid']; ?>/datastream/MEDIUM_SIZE/view" class="image-datastream" />
+                <img src="/islandora/object/<?php print $associated_object['pid']; ?>/datastream/MEDIUM_SIZE/view" class="image-datastream" />
              </a>
+           <?php else: ?>
+             <?php if (isset($associated_object['thumb_link'])): ?>
+                <?php print($associated_object['thumb_link']); ?>
+             <?php endif; ?>
+            <?php endif; ?>
             </dt>
             <dd class="collection-value <?php print isset($associated_object['dc_array']['dc:title']['class']) ? $associated_object['dc_array']['dc:title']['class'] : ''; ?> <?php print $row_field == 0 ? ' first' : ''; ?>">
               <?php if (isset($associated_object['thumb_link'])): ?>
