@@ -110,3 +110,28 @@ div.breadcrumb {
 		color: $seafoam;
 	}
 }
+
+/** Pagination styling **/
+.item-list {
+	ul.pager {
+		li.pager-current {
+			font-size: 1.1rem;
+			color: $orange;
+		}
+
+		li {
+			a {
+				color: $seafoam;
+			}
+		}
+
+		.pager-next, .pager-last {
+			
+			a {
+				padding-top: .5rem;
+				color: $seafoam;
+				border-radius: 4px;
+			}
+		}
+	}
+}
