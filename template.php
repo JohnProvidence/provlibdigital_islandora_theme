@@ -13,4 +13,6 @@ function pld_preprocess_page(&$variables, $hook) {
   $variables['dc'] = t('Digital Collections');
 }
 
+require('includes/islandora_collections.php');
+
 ?>

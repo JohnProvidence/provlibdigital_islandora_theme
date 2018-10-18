@@ -6,9 +6,6 @@
  *
  * @TODO: needs documentation about file and variables
  */
-$parent = islandora_get_parents_from_rels_ext($islandora_object);
-
-
 ?>
 
 <div class="islandora islandora-basic-collection">
