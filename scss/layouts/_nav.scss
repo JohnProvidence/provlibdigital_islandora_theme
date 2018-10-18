@@ -24,13 +24,38 @@ nav#navigation {
 		}
 	}
 
-	.search__wrapper {
+	.search-form__wrapper {
 		margin-left: auto;
+
+		.collections-search__form-wrapper.hidden {
+			display: none;
+		}
+		
 		.search-bar__wrapper {
 			h3.title {
 				display: none;
 			}
 		}
+
+		#search-icon {
+			.svg-inline--fa.fa-search {
+				margin-right: 1rem;
+				display: inline-block;
+				color: $seafoam;
+				font-size: 2.5rem;
+				transition: all .3s ease-in-out;
+				cursor: pointer;
+
+				&:hover {
+					color: darken($seafoam, 10%);
+				}
+			}
+		}
+
+		#search-icon.hidden {
+			display: none;
+		}
+		
 	}
 }
 
@@ -49,5 +74,16 @@ nav#navigation {
 				color: $seafoam;
 			}
 		}
+	}
+}
+
+/** Breadcrumb styling **/
+div.breadcrumb {
+	font-size: .8rem;
+	padding: 1rem 0;
+	a {
+		display: inline-block;
+		margin-right: .5rem;
+		color: $seafoam;
 	}
 }

@@ -14,5 +14,6 @@ function pld_preprocess_page(&$variables, $hook) {
 }
 
 require('includes/islandora_collections.php');
+require('includes/islandora_solr_search.php');
 
 ?>

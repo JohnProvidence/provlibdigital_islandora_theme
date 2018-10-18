@@ -1,6 +1,11 @@
 jQuery(document).ready(function($) {
 	// Code below can use jQuery $ 
-	var metadataContianer = $('.islandora-metadata');
+	var searchIcon = $('#search-icon');
+	var searchForm = $('.collections-search__form-wrapper');
 
-	metadataContainer.removeClass('collapsible');
+	searchIcon.on('click', function() {
+		$(this).addClass('hidden');
+		searchForm.removeClass('hidden');
+		console.log('clicked');
+	})
 })
