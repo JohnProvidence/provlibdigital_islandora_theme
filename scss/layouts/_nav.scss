@@ -30,6 +30,29 @@ nav#navigation {
 		.collections-search__form-wrapper.hidden {
 			display: none;
 		}
+
+		#islandora-solr-simple-search-form {
+			margin-right: 1rem;
+			#edit-simple {
+				.form-item {
+					#edit-islandora-simple-search-query {
+						background: transparent;
+						padding: .5rem;
+						border: none;
+						border-bottom: solid 2px $seafoam;
+						border-right: solid 2px $seafoam;
+						border-top: solid 2px transparent;
+						border-left: solid 2px transparent;
+						color: $seafoam;
+					}
+				}
+			}
+			#edit-submit {
+				border-radius: 0px;
+				border-bottom: solid 2px $seafoam;
+				margin-left: -4px;
+			}
+		}
 		
 		.search-bar__wrapper {
 			h3.title {
