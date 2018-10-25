@@ -7,6 +7,15 @@
  * @TODO: add documentation about file and available variables
  */
 
+// Get Finding Aid from Parent Collection
+if($parent_collections):
+  foreach($parent_collections as $p) {
+    if($p['FINDING_AID']):
+     $fa_url = '/islandora/object/' . $p->id . '/datastream/FINDING_AID/view';
+    endif;
+  }
+endif;
+
 ?>
 
 <div class="islandora-basic-image-object islandora" vocab="http://schema.org/" prefix="dcterms: http://purl.org/dc/terms/" typeof="ImageObject">
@@ -43,6 +52,10 @@
         <ul>
           <?php foreach ($parent_collections as $collection): ?>
             <li><?php print l($collection->label, "islandora/object/{$collection->id}"); ?></li>
+            <?php if($collection['FINDING_AID'] != FALSE): ?>
+            <li class="finding_aid_url"><?php print l( $collection->label . ' Finding Aid', $fa_url); 
+              endif;
+            ?>
           <?php endforeach; ?>
         </ul>
       </div>

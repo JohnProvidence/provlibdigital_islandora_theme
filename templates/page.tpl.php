@@ -8,6 +8,12 @@
 
 <?php include('includes/header.php'); ?>
 
+<?php if($page['featured_collections']): ?>
+	<div class="featured_collection_object">
+		<?php print render($page['featured_collections']); ?>
+	</div>
+<?php endif; ?>
+
 <div id="page" class="<?php print $classes; ?>" <?php print $attributes; ?>>
 	<div id="main">
 		<div id="container">
