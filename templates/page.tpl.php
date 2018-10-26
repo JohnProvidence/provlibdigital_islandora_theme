@@ -8,10 +8,14 @@
 
 <?php include('includes/header.php'); ?>
 
-<?php if($page['featured_collections']): ?>
-	<div class="featured_collection_object">
-		<?php print render($page['featured_collections']); ?>
-	</div>
+<?php $current_path = current_path();
+	if($current_path === 'islandora/object/islandora:root'):
+ ?>
+	<?php if($page['featured_collections']): ?>
+		<div class="featured_collection_object">
+			<?php print render($page['featured_collections']); ?>
+		</div>
+	<?php endif; ?>
 <?php endif; ?>
 
 <div id="page" class="<?php print $classes; ?>" <?php print $attributes; ?>>

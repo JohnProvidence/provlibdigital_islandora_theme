@@ -10,7 +10,7 @@ function pld_preprocess_islandora_basic_collection_grid(&$variables) {
 
 function pld_preprocess_islandora_basic_collection(&$variables) {
 	$islandora_object = $variables['islandora_object'];
-
+  
   try {
     $dc = $islandora_object['DC']->content;
     $dc_object = DublinCore::importFromXMLString($dc);

@@ -28,6 +28,7 @@
       <?php else: ?>
        <h2><?php print $dc_array['dc:title']['value']; ?></h2>
      <?php endif; ?>
+
   <?php
     endif;
   ?>

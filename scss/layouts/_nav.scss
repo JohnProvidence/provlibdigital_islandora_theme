@@ -4,7 +4,10 @@ nav#navigation {
 	flex-flow: row wrap;
 	align-items: center;
 	justify-content: flex-start;
-
+	-webkit-box-shadow: 0px 10px 7px -6px rgba(0,0,0,0.67);
+	-moz-box-shadow: 0px 10px 7px -6px rgba(0,0,0,0.67);
+	box-shadow: 0px 10px 7px -6px rgba(0,0,0,0.67);
+	z-index:20;
 	ul.main-menu {
 		li {
 			flex-grow: 1;
