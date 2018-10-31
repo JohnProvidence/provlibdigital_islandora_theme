@@ -3,6 +3,16 @@ body {
 	font-size: 16px;
 }
 
+.collections-description__wrapper {
+	padding: 3rem;
+	background: $adminBlue;
+
+	.collections-description__text {
+		max-width: 1600px;
+		margin: 1rem auto;
+	}
+}
+
 #container, #sidebar-first, #sidebar-second, section#content {
 	&:before {
 		content: "";
@@ -40,6 +50,27 @@ body {
 section#content {
 	padding: 1rem;
 }
+
+body.page-islandora-object-islandora-root {
+	#container {
+		
+		section#content {
+			float: none !important;
+			width: 100% !important;
+			max-width: 1600px;
+			margin: 1rem auto;
+		}
+
+		#sidebar-first {
+			display: none;
+		}
+		#sidebar-second {
+			display: none;
+		}
+	}
+}
+
+
 
 
 
