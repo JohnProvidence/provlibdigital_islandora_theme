@@ -1,8 +1,10 @@
 body.page-islandora-object-islandora-root {
-	position: fixed;
-	background: rgba(0,0,0, .8);
-	z-index: 200;
-	background-image: none;
+	header.site-header__wrapper {
+		position: fixed;
+		background: rgba(0,0,0, .8);
+		z-index: 200;
+		background-image: none !important;
+	}
 }
 
 header.site-header__wrapper {
@@ -10,7 +12,6 @@ header.site-header__wrapper {
 	background-repeat: repeat;
 	background: rgba(0,0,0, .8);
 	position: relative;
-	
 	width: 100%;
 	display: flex;
 	flex-flow: row wrap;
@@ -79,6 +80,7 @@ header.site-header__wrapper {
 	#search-icon {
 			.svg-inline--fa.fa-search {
 				margin-right: 1rem;
+				margin-left: 1rem;
 				display: inline-block;
 				color: $seafoam;
 				font-size: 2.5rem;
