@@ -18,6 +18,17 @@
 	<?php endif; ?>
 <?php endif; ?>
 
+<?php if(theme_get_setting('pld_collections_description_text') && $current_path === 'islandora/object/islandora:root'): 
+		$collections_description = theme_get_setting('pld_collections_description_text');
+	?>
+	<div class="collections-description__wrapper">
+		<h2>Welcome to Providence Public Library Digital Collections</h2>
+		<div class="collections-description__text">
+			<?php print $collections_description; ?>
+		</div>
+	</div>
+<?php endif; ?>
+
 <div id="page" class="<?php print $classes; ?>" <?php print $attributes; ?>>
 	<div id="main">
 		<div id="container">

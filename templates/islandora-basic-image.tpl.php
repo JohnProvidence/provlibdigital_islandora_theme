@@ -28,7 +28,7 @@ endif;
   </div>
    
    <div class="islandora-basic-image-description">
-      <h3><?php print $description; ?></h3>
+      <?php print $description; ?>
   </div>
 
   <div class="islandora-basic-image-download-btns__wrapper">

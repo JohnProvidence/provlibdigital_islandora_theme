@@ -7,5 +7,11 @@ jQuery(document).ready(function($) {
 		$(this).addClass('hidden');
 		searchForm.removeClass('hidden');
 		console.log('clicked');
-	})
+	});
+
+	$('.view-all-collections').on('click', function() {
+		$('html,body').animate({
+			scrollTop: $('.islandora-basic-collection-wrapper').offset().top
+		}, 'slow');
+	});
 })

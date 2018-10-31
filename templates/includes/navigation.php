@@ -31,9 +31,6 @@ if( $main_menu || $secondary_menu ):
 
 <?php if($page['collections_search']): ?>
 	<div class="search-form__wrapper">
-		<span id="search-icon">
-			<i class="fas fa-search" aria-hidden="true"></i>
-		</span>
 		<div class="collections-search__form-wrapper hidden">
 			<?php print render($page['collections_search']); ?>
 		</div>

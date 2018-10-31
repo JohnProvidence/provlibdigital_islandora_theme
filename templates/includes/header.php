@@ -25,7 +25,13 @@
 			</div>
 		</div> 
 	</div> <!-- end logo__wrapper -->
-	<?php include('secondaryNav.php'); ?>
+	<div class="menu-toggle">
+		<i class="fas fa-bars" aria-hidden="true"></i>
+	</div>
+	<div id="search-icon">
+			<i class="fas fa-search" aria-hidden="true"></i>
+	</div>
+	<?php //include('secondaryNav.php'); ?>
 </header>
 
 <?php include('navigation.php'); ?>

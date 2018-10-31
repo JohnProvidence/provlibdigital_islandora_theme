@@ -1,11 +1,24 @@
+body.page-islandora-object-islandora-root {
+	position: fixed;
+	background: rgba(0,0,0, .8);
+	z-index: 200;
+	background-image: none;
+}
+
 header.site-header__wrapper {
 	background-image: url('img/header-texture.jpg');
 	background-repeat: repeat;
+	background: rgba(0,0,0, .8);
+	position: relative;
+	
 	width: 100%;
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
 	padding: .5rem 1rem;
+	webkit-box-shadow: 3px 10px 20px -4px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px 10px 20px -4px rgba(0,0,0,0.75);
+	box-shadow: 3px 10px 20px -4px rgba(0,0,0,0.75);
 
 	.logo__wrapper {
 		display: flex;
@@ -14,7 +27,7 @@ header.site-header__wrapper {
 		align-items: center;
 
 		a#logo {
-			max-width: 150px;
+			max-width: 80px;
 			display: inline-block;
 			margin-right: 1rem;
 
@@ -31,15 +44,15 @@ header.site-header__wrapper {
 			.library_name {
 				color: #fff;
 				font-family: $semibold;
-				font-size: 2rem;
-				max-width: 150px;
+				font-size: 1.5rem;
+				max-width: 100px;
 				line-height: 1.1;
 				margin-right: 2rem;
 			}
 
 			.repository_name {
 				color: $seafoam;
-				font-size: 2rem;
+				font-size: 1.5rem;
 				font-family: $light;
 				padding-top: 3.5rem;
 				padding-left: 1rem;
@@ -47,4 +60,38 @@ header.site-header__wrapper {
 			}
 		}
 	}
+
+	.menu-toggle {
+		margin-left: auto;
+		color: $seafoam;
+		padding: .5rem  .5rem 0;
+		border: solid thin $seafoam;
+		border-radius: 4px;
+		font-size: 2rem;
+		transition: all .3s ease-in-out;
+		cursor: pointer;
+		&:hover {
+			color: darken($seafoam, 25%);
+			border-color: darken($seafoam, 25%) ;
+		}
+	}
+
+	#search-icon {
+			.svg-inline--fa.fa-search {
+				margin-right: 1rem;
+				display: inline-block;
+				color: $seafoam;
+				font-size: 2.5rem;
+				transition: all .3s ease-in-out;
+				cursor: pointer;
+
+				&:hover {
+					color: darken($seafoam, 10%);
+				}
+			}
+		}
+
+		#search-icon.hidden {
+			display: none;
+		}
 }
