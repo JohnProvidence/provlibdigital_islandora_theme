@@ -91,7 +91,7 @@ else:
     $variables['dc_btn'] = '';
 endif;
 
-if(isset($img_obj) && !isset($copyright)):
+if(isset($img_obj) && $copyright == FALSE):
   $img_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/OBJ/view" download="'.$obj_pid.'-Title-'.$islandora_object->label.'/_OBJ.jpg">Download Image</a></div>';
   $variables['img_btn'] = $img_btn; 
 else:
