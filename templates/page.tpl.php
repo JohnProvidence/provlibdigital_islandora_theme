@@ -22,8 +22,8 @@
 		$collections_description = theme_get_setting('pld_collections_description_text');
 	?>
 	<div class="collections-description__wrapper">
-		<h2>Welcome to Providence Public Library Digital Collections</h2>
 		<div class="collections-description__text">
+			<h2>Welcome to Providence Public Library Digital Collections</h2>
 			<?php print $collections_description; ?>
 		</div>
 	</div>
@@ -32,6 +32,11 @@
 <div id="page" class="<?php print $classes; ?>" <?php print $attributes; ?>>
 	<div id="main">
 		<div id="container">
+			<?php if ($page['sidebar_first']): ?>
+		        <aside id="sidebar-first">
+		          <?php print render($page['sidebar_first']); ?>
+		        </aside>
+      		<?php endif; ?><!-- /sidebar-first -->
 			<section id="content">
 				<?php if ($breadcrumb || $title || $messages || $tabs || $action_links): ?>
 
@@ -45,12 +50,6 @@
 
 					<?php if ($title): ?>
 						<!--<h1 class="title"><?php print $title; ?></h1>-->
-					<?php endif; ?>
-
-					<?php if(theme_get_setting('pld_collections_description_text') && drupal_is_front_page()): ?>
-						<div class="pld-collections-text__wrapper">
-							<?php print theme_get_setting('pld_collections_description_text'); ?>
-						</div>
 					<?php endif; ?>
 
 					<?php print render($title_suffix); ?>
@@ -74,11 +73,7 @@
         		<?php print $feed_icons; ?>
 
 			</section><!-- ./content -->
-			<?php if ($page['sidebar_first']): ?>
-		        <aside id="sidebar-first">
-		          <?php print render($page['sidebar_first']); ?>
-		        </aside>
-      		<?php endif; ?><!-- /sidebar-first -->
+			
 
 		      <?php if ($page['sidebar_second']): ?>
 		        <aside id="sidebar-second">
@@ -88,5 +83,6 @@
 		</div>
 	</div><!-- ./main -->
 </div>
+<?php include('includes/search-modal.php'); ?>
 
 <?php include('includes/footer.php'); ?>

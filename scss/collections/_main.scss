@@ -4,52 +4,6 @@ li.islandora-print {
 	}
 }
 
-.view-islandora-collection-listing {
-	.view-content {
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: flex-start;
-	}
-	
-	.views-row {
-		width: calc(33.33% - 2rem);
-		margin: 1rem;
-		.collection-thumbnail__wrapper {
-			width: 100%;
-			border: solid thin $adminBlue;
-			overflow: hidden;
-
-			a {
-				img {
-					width: 100%;
-					max-width: 100%;
-					padding: 1rem;
-					transition: all .3s ease-in;
-
-					&:hover {
-						transform: scale(1.1);
-					}
-				}
-			}
-
-			.collection-thumbnail__details-wrapper {
-				padding: 1rem;
-				background: $adminBlue;
-
-				h3 {
-					color: $seafoam;
-				}
-
-				.view-collection__btn {
-					margin-top: 1rem;
-					@include btn;
-					
-				}
-			}
-		}
-	}
-}
-
 /** Basic Collection Overview page **/
 
 .islandora-basic-collection-display-switch {
@@ -81,30 +35,114 @@ li.islandora-print {
 	}
 }
 
-.islandora-basic-collection-grid {
-	.islandora-basic-collection-object {
-		border: solid thin $adminBlue;
-		width: calc(45% - 1rem);
-		margin:.5rem;
+/** Interior Collections page **/
+body.section-islandora {
 
-		.islandora-basic-collection-thumb {
-	
-			padding: .5rem;
-			overflow: hidden;
+	.islandora-basic-collection-wrapper {
+		padding: 1rem 0;
 
+	}
+		.islandora-basic-collection-grid {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: flex-start;
+			align-items: top;
 
-			img {
-				transition: all .3s ease-in-out;
-				&:hover {
-					transform: scale(1.1);
+			.islandora-basic-collection-object {
+				border: solid thin $orange;
+				width: calc(33.33% - 1rem) !important;
+				margin: .5rem;
+
+				.islandora-basic-collection-thumb {
+					overflow: hidden;
+					margin-bottom: -5px;
+					img {
+						transition: all .3s ease-in-out;
+						border-radius: 0px;
+						width: 100%;
+						&:hover {
+							transform: scale(1.05);
+						}
+					}
+				}
+
+				.islandora-basic-collection-caption {
+					text-align: center;
+					background:#fff;
+					
+					&:before {
+						content: "";
+						background: url('img/card-lines-orange.png') repeat-x #fff;
+						height: 25px;
+						display: block;
+					}
+
+					h4.title {
+						color: $orange;
+						padding: 2rem;
+					}
 				}
 			}
 		}
 
-		.islandora-basic-collection-caption {
-			padding: 1rem;
-			color: $seafoam;
-			background: $adminBlue;
+		.islandora-basic-collection {
+			padding-top: .5rem;
+			margin-bottom: .5rem;
+		}
+	
+}
+
+/** Main Page collection display **/
+body.page-islandora-object-islandora-root {
+	
+	.islandora-basic-collection-grid {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: flex-start;
+		align-items: top;
+
+		.islandora-basic-collection-object {
+			border: solid thin $orange;
+			width:calc(48% - .5rem) !important;
+			margin:.5rem !important;
+
+			.islandora-basic-collection-thumb {
+				overflow: hidden;
+				margin-bottom: -5px;
+				display: block;
+	
+
+				img {
+					transition: all .3s ease-in-out;
+					border-radius: 0px;
+					&:hover {
+						transform: scale(1.05);
+					}
+				}
+			}
+
+			.islandora-basic-collection-caption {
+				font-size: 1.5rem;
+				z-index: 20;
+				text-align: center;
+				background:#fff;
+				
+
+				&:before {
+					content: "";
+					background: url('img/card-lines-orange.png') repeat-x #fff;
+					height: 25px;
+					display: block;
+				}
+
+				h4.title {
+					padding:2rem 0;
+					color: $orange;
+					a {
+						color: inherit;
+					}
+				}
+			}
 		}
 	}
 }

@@ -5,8 +5,6 @@
 */
 
 function pld_form_islandora_solr_simple_search_form_alter(&$form, &$form_state, $form_id) {
-	
-	$icon_html = '<i class="fa fa-search" aria-hidden="true" class="pld-search-form-show"></i>';
 
 	$form['simple']['islandora_simple_search_query'] = array(
 		'#size' => '30',

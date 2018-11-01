@@ -8,7 +8,6 @@
  *
  * @TODO: needs documentation about file and variables
  */
-
 ?>
 <div class="islandora-basic-collection-wrapper">
    <span class="islandora-basic-collection-display-switch">

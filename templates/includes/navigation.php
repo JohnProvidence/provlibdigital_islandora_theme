@@ -7,13 +7,17 @@
 if( $main_menu || $secondary_menu ):
 ?>
 
-<nav id="navigation" class="site-nav__wrapper menu
+<nav id="navigation" class="hidden site-nav__wrapper menu
 
 <?php
 	if( !empty($main_menu) ):
 		print "with-primary";
 	endif;
 ?>">
+	<div class="menu-header">
+		<span class="menu-title">Menu</span> 
+		<span class="menu-close"><i class="fas fa-window-close" aria-hidden="true"></i>
+	</div>
 	<div class="menu-container">
 	
 		<?php
@@ -28,14 +32,6 @@ if( $main_menu || $secondary_menu ):
 		?>
 	
 	</div>
-
-<?php if($page['collections_search']): ?>
-	<div class="search-form__wrapper">
-		<div class="collections-search__form-wrapper hidden">
-			<?php print render($page['collections_search']); ?>
-		</div>
-	</div>
-<?php endif; ?>
 
 </nav>
 

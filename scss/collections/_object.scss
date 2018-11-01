@@ -1,4 +1,7 @@
 .islandora-basic-image-object {
+	.islandora-basic-image-title {
+		margin-top: 1rem;
+	}
 	.islandora-basic-image-content-wrapper {
 		.islandora-basic-image-content {
 			background-color: transparent;
@@ -6,12 +9,13 @@
 			margin-bottom: 1rem;
 			margin-top: 1rem;
 			overflow: hidden;
-			
+			padding: 0;
 			img {
 				transition: all .3s ease-in-out;
-				
+				max-width: 600px;
+				width: 100%;				
 				&:hover {
-					transform: scale(1.05);
+					transform: scale(1.02);
 				}
 			}
 		}
@@ -31,9 +35,34 @@
 			}
 
 			ul {
+				display: flex;
+				flex-flow: row wrap;
+				align-items: center;
+				justify-content: flex-start;
+
 				li {
 					list-style: none;
 					margin: .5rem;
+				}
+				li.collection-label {
+					color: $orange;
+					font-weight: 700;
+					font-size: 1.2rem;
+				}
+				li.finding_aid_url {
+
+					svg.svg-inline--fa {
+						display: inline-block;
+						margin-right: .5rem;
+					}
+					padding: .5rem;
+					background: $adminBlue;
+					border-radius: 4px;
+					transition: all .3s ease-in-out;
+
+					&:hover {
+						background:darken($adminBlue, 10%);
+					}
 				}
 			}
 
@@ -78,10 +107,29 @@
 	}
 }
 
+/** Copyright Restriction Message **/
+.copyright-restriction__message {
+	background: $adminBlue;
+	margin-top: 1rem;
+	min-height: 200px;
+	max-width: 800px;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: flex-start;
+	justify-content: center;
+	
+
+	.copyright_restriction {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: $seafoam;
+		padding-left: 2rem;
+	}
+}
+
 /** Datastream Download Buttons **/
 .islandora-basic-image-download-btns__wrapper {
 	margin:1rem 0;
-	border-top: solid thin $adminBlue;
 	padding-top:1rem;
 
 	.btn {

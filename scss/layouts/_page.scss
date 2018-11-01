@@ -34,7 +34,7 @@ body {
 
 	section#content {
 		float: none !important;
-		width:calc(75% - 1rem) !important;
+		width:calc(85% - 1rem) !important;
 		margin: .5rem;
 		padding: 1rem;
 		margin-left: .5rem;
@@ -42,8 +42,11 @@ body {
 
 	#sidebar-first {
 		float: none;
-		width: calc(25% - 1rem);
-		margin: .5rem;
+		width: calc(15% - 1rem);
+		margin-left: .5rem;
+		margin-top: 4rem;
+		border-right: solid thin $adminBlue;
+		border-top: solid thin $adminBlue;
 	}
 }
 
@@ -69,12 +72,6 @@ body.page-islandora-object-islandora-root {
 		}
 	}
 }
-
-
-
-
-
-
 
 .button--primary {
 	cursor: pointer;

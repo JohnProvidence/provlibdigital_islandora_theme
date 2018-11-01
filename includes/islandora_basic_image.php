@@ -28,6 +28,9 @@ function pld_preprocess_islandora_basic_image(array &$variables) {
   $variables['parent_collections'] = islandora_get_parents_from_rels_ext($islandora_object);
   $variables['metadata'] = islandora_retrieve_metadata_markup($islandora_object);
   $variables['description'] = islandora_retrieve_description_markup($islandora_object);
+  $variables['obj_label'] = $islandora_object->label;
+
+
 
   // Original.
   if (isset($islandora_object['OBJ']) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $islandora_object['OBJ'])) {
@@ -63,6 +66,43 @@ function pld_preprocess_islandora_basic_image(array &$variables) {
       $variables['islandora_content'] = $variables['islandora_medium_img'];
     }
   }
+
+  // get Davilable datastreams to generate download buttons
+  $obj_pid = $islandora_object->id;
+  $object = islandora_object_load($obj_pid);
+  $mods = $object->getDatastream('MODS');
+  $dc = $object->getDatastream('DC');
+  $img_obj = $object->getDatastream('OBJ');
+  $copyright = $object->getDatastream('COPYRIGHT-RESTRICTION');
+
+  $variables['under_copyright'] = $copyright;
+
+  if(isset($mods)):
+    $mods_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/MODS/view" download="'.$obj_pid.'-Title-'.$islandora_object->label.'/_MODS.xml">Download MODS XML</a></div>';
+  $variables['mods_btn'] = $mods_btn;
+  else:
+    $variables['mods_btn'] = '';
+  endif;
+
+if(isset($dc)):
+    $dc_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/DC/view" download="'.$obj_pid.'-Title-'.$islandora_object->label.'/_DC.xml">Download DC XML</a></div>';
+  $variables['dc_btn'] = $dc_btn;
+else:
+    $variables['dc_btn'] = '';
+endif;
+
+if(isset($img_obj) && $copyright == FALSE):
+  $img_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/OBJ/view" download="'.$obj_pid.'-Title-'.$islandora_object->label.'/_OBJ.jpg">Download Image</a></div>';
+  print 'under copyright';
+  $variables['img_btn'] = $img_btn; 
+else:
+  $variable['img_btn'] = '';
+endif;
+
+if(isset($copyright)):
+  $variables['copyright'] = '<div class="copyright_restriction">This image is under copyright restriction. <br><br> A print is availble for viewing at the Providence Public Library.';
+endif;
+
 }
 
 

@@ -16,13 +16,27 @@ if($parent_collections):
   }
 endif;
 
+
 ?>
 
 <div class="islandora-basic-image-object islandora" vocab="http://schema.org/" prefix="dcterms: http://purl.org/dc/terms/" typeof="ImageObject">
   <div class="islandora-basic-image-content-wrapper clearfix">
-    <?php if (isset($islandora_content)): ?>
+    <?php if (isset($variables['obj_label'])): ?>
+      <div class="islandora-basic-image-title">
+        <h2><?php print $variables['obj_label']; ?></h2>
+      </div>
+    <?php endif; ?>
+
+   
+    <?php if (isset($islandora_content) && !isset($variables['copyright'])): ?>
       <div class="islandora-basic-image-content">
         <?php print $islandora_content; ?>
+      </div>
+    <?php endif; ?>
+
+    <?php if(isset($variables['copyright'])): ?>
+      <div class="copyright-restriction__message">
+        <?php print $variables['copyright']; ?>
       </div>
     <?php endif; ?>
   </div>
@@ -30,34 +44,34 @@ endif;
    <div class="islandora-basic-image-description">
       <?php print $description; ?>
   </div>
-
-  <div class="islandora-basic-image-download-btns__wrapper">
-    <h4>Available Object Datastreams</h4>
-    <div class="islandora-basic-image-download download-img btn OBJ">
-      <a href="/islandora/object/<?php print $islandora_object->id; ?>/datastream/OBJ/view" download="<?php print $islandora_object->label.'_OBJ.jpg'; ?>">Download OBJ</a>
-    </div>
-   
-      <div class="islandora-basic-image-download btn MODS">
-        <a href="/islandora/object/<?php print $islandora_object->id; ?>/datastream/MODS/view" download="<?php print $islandora_object->label.'_MODS.xml'; ?>">Download MODS XML</a>
-      </div>
-      <div class="islandora-basic-image-download btn DC">
-        <a href="/islandora/object/<?php print $islandora_object->id; ?>/datastream/DC/view" download="<?php print $islandora_object->label.'_DC.xml'; ?>">Download Dublin Core XML</a>
-      </div>
-  </div>
-  
-  <div class="islandora-basic-image-metadata">
+   <div class="islandora-basic-image-metadata">
     <?php if ($parent_collections): ?>
       <div class="in-collections-listing">
         <h2><?php print t('In collections'); ?></h2>
         <ul>
           <?php foreach ($parent_collections as $collection): ?>
-            <li><?php print l($collection->label, "islandora/object/{$collection->id}"); ?></li>
+            <li class="collection-label"><?php print l($collection->label, "islandora/object/{$collection->id}"); ?></li>
             <?php if($collection['FINDING_AID'] != FALSE): ?>
-            <li class="finding_aid_url"><?php print l( $collection->label . ' Finding Aid', $fa_url); 
+            <li class="finding_aid_url"><i class="far fa-file" aria-hidden="true"></i><?php print l('Download Collection Finding Aid', $fa_url); 
               endif;
             ?>
           <?php endforeach; ?>
         </ul>
+        <div class="islandora-basic-image-download-btns__wrapper">
+          
+          <?php if(isset($variables['mods_btn'])): ?>
+          <?php print $variables['mods_btn']; ?>
+          <?php endif; ?>
+
+          <?php if(isset($variables['dc_btn'])): ?>
+          <?php print $variables['dc_btn']; ?>
+          <?php endif; ?>
+          
+          <?php if(isset($variables['img_btn'])): ?>
+           <?php print $variables['img_btn']; ?>
+          <?php endif; ?>
+       
+        </div>
       </div>
     <?php endif; ?>
     <?php print $metadata; ?>
