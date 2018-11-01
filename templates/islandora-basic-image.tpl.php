@@ -28,13 +28,13 @@ endif;
     <?php endif; ?>
 
    
-    <?php if (isset($islandora_content) && !isset($variables['copyright'])): ?>
+    <?php if (isset($islandora_content) && $variables['under_copyright'] == FALSE): ?>
       <div class="islandora-basic-image-content">
         <?php print $islandora_content; ?>
       </div>
     <?php endif; ?>
 
-    <?php if(isset($variables['copyright'])): ?>
+    <?php if($variables['under_copyright'] != FALSE): ?>
       <div class="copyright-restriction__message">
         <?php print $variables['copyright']; ?>
       </div>

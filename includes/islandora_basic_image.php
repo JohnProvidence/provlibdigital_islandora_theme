@@ -91,9 +91,8 @@ else:
     $variables['dc_btn'] = '';
 endif;
 
-if(isset($img_obj) && $copyright == FALSE):
+if(isset($img_obj) && !isset($copyright)):
   $img_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/OBJ/view" download="'.$obj_pid.'-Title-'.$islandora_object->label.'/_OBJ.jpg">Download Image</a></div>';
-  print 'under copyright';
   $variables['img_btn'] = $img_btn; 
 else:
   $variable['img_btn'] = '';
@@ -102,7 +101,6 @@ endif;
 if(isset($copyright)):
   $variables['copyright'] = '<div class="copyright_restriction">This image is under copyright restriction. <br><br> A print is availble for viewing at the Providence Public Library.';
 endif;
-
 }
 
 
