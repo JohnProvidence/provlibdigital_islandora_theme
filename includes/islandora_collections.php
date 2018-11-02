@@ -78,28 +78,52 @@ function pld_preprocess_islandora_basic_collection(&$variables) {
     $associated_objects_array[$pid]['path'] = $object_url;
     $associated_objects_array[$pid]['title'] = $title;
     $associated_objects_array[$pid]['class'] = drupal_strtolower(preg_replace('/[^A-Za-z0-9]/', '-', $pid));
-    if (isset($fc_object['TN']) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $fc_object['TN'])) {
-      $thumbnail_img = theme('image', array('path' => "$object_url/datastream/TN/view", 'alt' => $title));
-    }
-    else {
-      $image_path = drupal_get_path('module', 'islandora');
-      $thumbnail_img = theme('image', array('path' => "$image_path/images/folder.png", 'alt' => $title));
-    }
-    if(isset($fc_object['MEDIUM_SIZE']) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $fc_object['MEDIUM_SIZE'])) {
+
+    // check for content model then generate image thumbs conditionally
+    $obj_models = $fc_object->relationships->get('info:fedora/fedora-system:def/model#', 'hasModel');
+    $obj_model = $obj_models[0]['object']['value'];
+    $medium_size = '';
+    
+    $no_thumb_path = drupal_get_path('theme', 'pld');
+    $no_thumb = theme('image', array('path' => "$no_thumb_path/img/ppl-pattern.png", 'alt' => $title));
+
+     if(isset($fc_object['MEDIUM_SIZE']) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $fc_object['MEDIUM_SIZE'])) {
       $medium_size = theme('image', array('path' => "$object_url/datastream/MEDIUM_SIZE/view", 'alt' => $title));
     } else {
       $medium_size = NULL;
     }
-    $associated_objects_array[$pid]['medium_size'] = $medium_size;
-    $associated_objects_array[$pid]['thumbnail'] = $thumbnail_img;
-    $associated_objects_array[$pid]['title_link'] = l($title, $object_url, array('html' => TRUE, 'attributes' => array('title' => $title)));
-    $associated_objects_array[$pid]['thumb_link'] = l($thumbnail_img, $object_url, array('html' => TRUE, 'attributes' => array('title' => $title)));
-    $associated_objects_array[$pid]['medium_size'] = $medium_size;
-    if($medium_size != NULL) {
-      $associated_objects_array[$pid]['medium_size_link'] = l($medium_size, $object_url, array('html' => TRUE, 'attributes' => array('title' => $title)));
+
+    if (isset($fc_object['TN']) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $fc_object['TN'])) {
+      $thumbnail_img = theme('image', array('path' => "$object_url/datastream/TN/view", 'alt' => $title));
     }
-    
+    else {
+      $thumbnail_img = $no_thumb;
+    }
+
+    if($obj_model == 'islandora:compoundCModel') {
+      $parts = islandora_compound_object_get_parts($fc_object->id);
+      $obj_count = count($parts);
+      if($obj_count <= 0) {
+        $medium_size = $no_thumb;
+      } else {
+         $first_child = $parts[0];
+         $medium_size = theme('image', array('path' => "islandora/object/".$first_child."/datastream/MEDIUM_SIZE/view", 'alt' => $title));
+      }
+    }
+
+    $associated_objects_array[$pid]['thumbnail'] = $thumbnail_img;
+    $associated_objects_array[$pid]['medium_size'] = $medium_size;
+    $associated_objects_array[$pid]['title_link'] = l($title, $object_url, array('html' => TRUE, 'attributes' => array('title' => $title)));
+   
+  
+    if($obj_model == 'islandora:collectionCModel') {
+      $associated_objects_array[$pid]['obj_link'] = l($thumbnail_img, $object_url, array('html' => TRUE, 'attributes' => array('title' => $title)));
+    } else {
+      $associated_objects_array[$pid]['obj_link'] = l($medium_size, $object_url, array('html' => TRUE, 'attributes' => array('title' => $title)));
+    }
+   
   }
+
   $variables['associated_objects_array'] = $associated_objects_array;
 }
 

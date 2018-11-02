@@ -15,16 +15,12 @@
       <div class="islandora-basic-collection-object islandora-basic-collection-list-item clearfix">
         <dl class="<?php print $associated_object['class']; ?>">
             <dt>
-            <?php if(isset($associated_object['medium_size_link'])): ?>
-             <?php print $associated_object['medium_size_link']; ?>
-           <?php else: ?>
-             <?php if (isset($associated_object['thumb_link'])): ?>
-                <?php print($associated_object['thumb_link']); ?>
-             <?php endif; ?>
-            <?php endif; ?>
+           <?php if(isset($associated_object['obj_link'])): ?>
+            <?php print $associated_object['obj_link']; ?>
+           <?php endif; ?>
             </dt>
             <dd class="collection-value <?php print isset($associated_object['dc_array']['dc:title']['class']) ? $associated_object['dc_array']['dc:title']['class'] : ''; ?> <?php print $row_field == 0 ? ' first' : ''; ?>">
-              <?php if (isset($associated_object['thumb_link'])): ?>
+              <?php if (isset($associated_object['title_link'])): ?>
                 <strong><?php print filter_xss($associated_object['title_link']); ?></strong>
               <?php endif; ?>
             </dd>
