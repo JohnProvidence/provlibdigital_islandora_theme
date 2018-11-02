@@ -23,11 +23,12 @@ function pld_preprocess_islandora_basic_image(array &$variables) {
   }
   $variables['islandora_dublin_core'] = isset($dc_object) ? $dc_object : NULL;
   $variables['dc_array'] = isset($dc_object) ? $dc_object->asArray() : array();
+  //var_dump($variables['dc_array']);
   $variables['islandora_object_label'] = $islandora_object->label;
   $variables['theme_hook_suggestions'][] = 'islandora_basic_image__' . str_replace(':', '_', $islandora_object->id);
   $variables['parent_collections'] = islandora_get_parents_from_rels_ext($islandora_object);
   $variables['metadata'] = islandora_retrieve_metadata_markup($islandora_object);
-  $variables['description'] = islandora_retrieve_description_markup($islandora_object);
+  $variables['description'] = $variables['dc_array']['dc:description']['value'];
   $variables['obj_label'] = $islandora_object->label;
 
 
@@ -67,15 +68,15 @@ function pld_preprocess_islandora_basic_image(array &$variables) {
     }
   }
 
-  // get Davilable datastreams to generate download buttons
+  // get datastreams to generate download buttons
   $obj_pid = $islandora_object->id;
   $object = islandora_object_load($obj_pid);
   $mods = $object->getDatastream('MODS');
   $dc = $object->getDatastream('DC');
   $img_obj = $object->getDatastream('OBJ');
   $copyright = $object->getDatastream('COPYRIGHT-RESTRICTION');
-
   $variables['under_copyright'] = $copyright;
+
 
   if(isset($mods)):
     $mods_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/MODS/view" download="'.$obj_pid.'-Title-'.$islandora_object->label.'/_MODS.xml">Download MODS XML</a></div>';

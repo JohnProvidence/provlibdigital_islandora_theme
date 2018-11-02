@@ -27,11 +27,19 @@
 	</div> <!-- end logo__wrapper -->
 
 	<div class="menu-toggle">
-		<i class="fas fa-bars" aria-hidden="true"></i>
+		<i class="fas fa-bars" aria-hidden="true" title="Menu"></i>
 	</div>
 
 	<div id="search-icon">
-		<i class="fas fa-search" aria-hidden="true"></i>
+		<i class="fas fa-search" aria-hidden="true" title="Search Collection"></i>
+	</div>
+
+	<div class="user-login-toggle">
+		<?php if(!user_is_logged_in()): ?>
+			<a href="/user/login"><i class="fas fa-sign-in-alt" aria-hidden="true" title="Account Login"></i></a>
+		<?php else: ?>
+			<a href="/user"><i class="far fa-user-circle" aria-hidden="true" title="Account"></i></a>
+		<?php endif; ?>
 	</div>
 	
 	<?php //include('secondaryNav.php'); ?>

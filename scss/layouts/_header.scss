@@ -77,8 +77,8 @@ header.site-header__wrapper {
 		}
 	}
 
-	#search-icon {
-			.svg-inline--fa.fa-search {
+	#search-icon, .user-login-toggle {
+			.svg-inline--fa {
 				margin-right: 1rem;
 				margin-left: 1rem;
 				display: inline-block;
@@ -92,8 +92,9 @@ header.site-header__wrapper {
 				}
 			}
 		}
+}
 
-		#search-icon.hidden {
-			display: none;
-		}
+.user-login-toggle {
+	margin-left: -1rem;
+	font-size: 2.75rem;
 }

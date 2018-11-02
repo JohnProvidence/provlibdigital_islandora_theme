@@ -83,6 +83,7 @@
 		</div>
 	</div><!-- ./main -->
 </div>
+
 <?php include('includes/search-modal.php'); ?>
 
 <?php include('includes/footer.php'); ?>

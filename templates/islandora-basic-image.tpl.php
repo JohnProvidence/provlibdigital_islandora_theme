@@ -8,6 +8,7 @@
  */
 
 // Get Finding Aid from Parent Collection
+
 if($parent_collections):
   foreach($parent_collections as $p) {
     if($p['FINDING_AID']):
@@ -15,7 +16,6 @@ if($parent_collections):
     endif;
   }
 endif;
-
 
 ?>
 
@@ -27,7 +27,6 @@ endif;
       </div>
     <?php endif; ?>
 
-   
     <?php if (isset($islandora_content) && $variables['under_copyright'] == FALSE): ?>
       <div class="islandora-basic-image-content">
         <?php print $islandora_content; ?>
@@ -40,10 +39,11 @@ endif;
       </div>
     <?php endif; ?>
   </div>
-   
+
    <div class="islandora-basic-image-description">
-      <?php print $description; ?>
+      <?php print $variables['description']; ?>
   </div>
+
    <div class="islandora-basic-image-metadata">
     <?php if ($parent_collections): ?>
       <div class="in-collections-listing">
