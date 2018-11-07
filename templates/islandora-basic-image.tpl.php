@@ -56,8 +56,15 @@ endif;
               endif;
             ?>
           <?php endforeach; ?>
+
         </ul>
+      <?php endif; ?>
+      
         <div class="islandora-basic-image-download-btns__wrapper">
+
+           <?php if(isset($variables['img_btn'])): ?>
+           <?php print $variables['img_btn']; ?>
+          <?php endif; ?>
           
           <?php if(isset($variables['mods_btn'])): ?>
           <?php print $variables['mods_btn']; ?>
@@ -66,14 +73,14 @@ endif;
           <?php if(isset($variables['dc_btn'])): ?>
           <?php print $variables['dc_btn']; ?>
           <?php endif; ?>
-          
-          <?php if(isset($variables['img_btn'])): ?>
-           <?php print $variables['img_btn']; ?>
+
+          <?php if(isset($variables['marcxml_btn'])): ?>
+            <?php print $variables['marcxml_btn']; ?>
           <?php endif; ?>
        
         </div>
       </div>
-    <?php endif; ?>
+
     <?php print $metadata; ?>
   </div>
 </div>

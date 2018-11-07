@@ -27,6 +27,7 @@ function pld_preprocess_islandora_basic_image(array &$variables) {
   $variables['islandora_object_label'] = $islandora_object->label;
   $variables['theme_hook_suggestions'][] = 'islandora_basic_image__' . str_replace(':', '_', $islandora_object->id);
   $variables['parent_collections'] = islandora_get_parents_from_rels_ext($islandora_object);
+  
   $variables['metadata'] = islandora_retrieve_metadata_markup($islandora_object);
   $variables['description'] = $variables['dc_array']['dc:description']['value'];
   $variables['obj_label'] = $islandora_object->label;
@@ -77,31 +78,34 @@ function pld_preprocess_islandora_basic_image(array &$variables) {
   $copyright = $object->getDatastream('COPYRIGHT-RESTRICTION');
   $variables['under_copyright'] = $copyright;
 
+  $marcxml_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/download_mods_as_marxml" download="'.$obj_pid.'-'.$islandora_object->label.'/_marc.xml">Download MARCXML</a></div>';
+  $variables['marcxml_btn'] = $marcxml_btn;
 
   if(isset($mods)):
-    $mods_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/MODS/view" download="'.$obj_pid.'-Title-'.$islandora_object->label.'/_MODS.xml">Download MODS XML</a></div>';
+    $mods_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/MODS/view" download="'.$obj_pid.'-'.$islandora_object->label.'/_MODS.xml">Download MODS XML</a></div>';
   $variables['mods_btn'] = $mods_btn;
   else:
     $variables['mods_btn'] = '';
   endif;
 
-if(isset($dc)):
-    $dc_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/DC/view" download="'.$obj_pid.'-Title-'.$islandora_object->label.'/_DC.xml">Download DC XML</a></div>';
-  $variables['dc_btn'] = $dc_btn;
-else:
-    $variables['dc_btn'] = '';
-endif;
+  if(isset($dc)):
+      $dc_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/DC/view" download="'.$obj_pid.'-'.$islandora_object->label.'/_DC.xml">Download DC XML</a></div>';
+    $variables['dc_btn'] = $dc_btn;
+  else:
+      $variables['dc_btn'] = '';
+  endif;
 
-if(isset($img_obj) && $copyright == FALSE):
-  $img_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/OBJ/view" download="'.$obj_pid.'-Title-'.$islandora_object->label.'/_OBJ.jpg">Download Image</a></div>';
-  $variables['img_btn'] = $img_btn; 
-else:
-  $variable['img_btn'] = '';
-endif;
+  if(isset($img_obj) && $copyright == FALSE):
+    $img_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/OBJ/view" download="'.$obj_pid.'-'.$islandora_object->label.'/_OBJ.jpg">Download Image</a></div>';
+    $variables['img_btn'] = $img_btn; 
+  else:
+    $variable['img_btn'] = '';
+  endif;
 
-if(isset($copyright)):
-  $variables['copyright'] = '<div class="copyright_restriction">This image is under copyright restriction. <br><br> A print is availble for viewing at the Providence Public Library.';
-endif;
+  if(isset($copyright)):
+    $variables['copyright'] = '<div class="copyright_restriction">This image is under copyright restriction. <br><br> A print is availble for viewing at the Providence Public Library.';
+  endif;
+
 }
 
 

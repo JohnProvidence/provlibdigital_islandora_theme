@@ -3,8 +3,8 @@
 * Overrides Islandora Compound Theme
 */
 
-function template_preprocess_islandora_compound_prev_next(array &$variables) {
-	var_dump($variables);
+function pld_preprocess_islandora_compound_prev_next(array &$variables) {
+	
   drupal_add_js(drupal_get_path('module', 'islandora_compound_object') . '/js/caption_width.js');
 
   $themed_siblings = array();
@@ -56,6 +56,5 @@ function template_preprocess_islandora_compound_prev_next(array &$variables) {
   }
   $variables['themed_siblings'] = $themed_siblings;
 }
-
 
 ?>

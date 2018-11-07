@@ -26,6 +26,9 @@ function pld_form_islandora_solr_simple_search_form_alter(&$form, &$form_state, 
 			),
 		),
 	);
+	$form['simple']['advanced_link'] = array(
+		'#markup' => t('<a href="@url" class="advanced-search">Advanced Search', array('@url' => '/advanced-search' )),
+	);
 }
 
 
