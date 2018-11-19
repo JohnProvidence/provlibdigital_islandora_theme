@@ -1,0 +1,22 @@
+.islandora-solr-search-results {
+	.islandora-solr-grid {
+		display: flex;
+		flex-flow: row wrap;
+		align-items: flex-start;
+		justify-content: top;
+
+		.solr-grid-field {
+			width: calc(33.33% - 2rem);
+			margin: 1rem;
+
+			.solr-grid-thumb {
+				a {
+					img {
+						width: 100%;
+					}
+				}
+			}
+		}
+
+	}
+}

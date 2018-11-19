@@ -48,18 +48,16 @@
 				}
 			}
 
-			input#edit-submit {
+			input.pld-simple-search-submit {
 				border-radius: 0px;
 				margin-left:-5px;
 				margin-top: 2px;
+				background: $seafoam;
+				border: none;
+				color: #fff;
+				padding: .55rem 1rem;
 			}
 		}
-	}
-	a.advanced-search {
-		display: block;
-		margin-top: 1rem;
-		color: $seafoam;
-		text-align: right;
 	}
 }
 
@@ -84,19 +82,48 @@
 		clear: both;
 		margin-bottom: 1rem;
 	}
-
+	a {
+		display: block;
+		margin-top: 1rem;
+		color: $seafoam;
+		text-align: right;
+	}
 }
 
-
+.pld-advanced-search-block {
+	h3.title {
+		display: none;
+	}
+	&:before {
+		content: "Advanced Search";
+		display: block;
+		font-family: $semibold;
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		border-bottom: solid thin $adminBlue;
+	}
+}
 /** Islandora Advanced Search **/
-#islandora-solr-advanced-search-forms {
-	overflow: hidden;
+#islandora-solr-advanced-search-form {
+
 	div.form-type-select {
-		padding:1rem;
-		
+		padding:1rem 0;
+		display: block;
 
 		select.form-select {
-			max-width: 90%;
+			display: block;
+			width: 100%;
+			max-width: 400px;
+		}
+	}
+
+	div.form-item {
+		display: block;
+		min-width: 400px;
+		input[id^="edit-terms-"] {
+			width: 80% !important;
 		}
 	}
 }

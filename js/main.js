@@ -1,6 +1,5 @@
 jQuery(document).ready(function($) {
 	// Code below can use jQuery $ 
-	
 	// Search modal toggle
 	var searchIcon = $('#search-icon');
 	var searchForm = $('.search-modal');
@@ -33,4 +32,14 @@ jQuery(document).ready(function($) {
 			scrollTop: $('.islandora-basic-collection-wrapper').offset().top - 200
 		}, 'slow');
 	});
-})
+
+	// toggle facets options on search page
+	var facetTitle = $('.islandora-solr-facet-wrapper h3');
+
+	facetTitle.on('click', function() {
+		var facets = $(this).next('.solr-facet-results');
+		$(this).find('span.down-arrow').toggleClass('rotated');
+		facets.toggleClass('hidden');
+	});
+
+});

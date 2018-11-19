@@ -32,8 +32,6 @@ function pld_preprocess_islandora_basic_image(array &$variables) {
   $variables['description'] = $variables['dc_array']['dc:description']['value'];
   $variables['obj_label'] = $islandora_object->label;
 
-
-
   // Original.
   if (isset($islandora_object['OBJ']) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $islandora_object['OBJ'])) {
     $full_size_url = url("islandora/object/{$islandora_object->id}/datastream/OBJ/view", array('absolute' => TRUE));
