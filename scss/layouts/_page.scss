@@ -39,7 +39,19 @@ body {
 	justify-content: flex-start;
 	align-items: top;
 	/*background: url(img/stripes-light.png) repeat;*/
+}
 
+body.no-sidebars {
+	section#content {
+		float: none !important;
+		width: 100% !important;
+		max-width: 1400px !important;
+		margin: .5rem auto !important;
+		padding: 3rem 2rem 3rem 3rem;
+		background: #fff;
+	}
+}
+body.one-sidebar {
 	section#content {
 		float: none !important;
 		width:calc(85% - 1rem) !important;
@@ -58,6 +70,7 @@ body {
 		
 	}
 }
+
 
 body.page-islandora-object-islandora-root {
 	#container {
