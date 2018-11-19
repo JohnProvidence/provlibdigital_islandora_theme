@@ -51,11 +51,12 @@ body.no-sidebars {
 		background: #fff;
 	}
 }
+
 body.one-sidebar {
 	section#content {
 		float: none !important;
 		width:calc(85% - 1rem) !important;
-		margin: .5rem;
+		margin: .5rem !important;
 		margin-top: -5px;
 		padding: 3rem 2rem 3rem 3rem;
 		background: #fff;
