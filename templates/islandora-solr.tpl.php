@@ -10,11 +10,10 @@
  */
 
 ?>
-<h1> Test </h1>
 <?php if (empty($results)): ?>
   <p class="no-results"><?php print t('Sorry, but your search returned no results.'); ?></p>
 <?php else: ?>
-  <div class="islandora islandora-solr-search-results">
+  <div class="islandora islandora-solr-search-results pld-search-results">
     <?php $row_result = 0; ?>
     <?php foreach($results as $key => $result): ?>
       <!-- Search result -->
