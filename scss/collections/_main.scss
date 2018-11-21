@@ -9,6 +9,9 @@ li.islandora-print {
 .islandora-basic-collection-display-switch {
 	padding: 1rem;
 
+	@include mobile() {
+		display: none;
+	}
 	ul.links {
 		li {
 			margin-right: .5rem;
@@ -38,8 +41,6 @@ li.islandora-print {
 /** Interior Collections page **/
 body.section-islandora {
 
-	
-		
 	.block-islandora-compound-object {
 		width: auto;
 		display: inline-block;
@@ -76,6 +77,10 @@ body.section-islandora {
 	.islandora-basic-collection-wrapper {
 		padding: 1rem 0;
 
+		@include mobile() {
+			padding: .5rem 0;
+		}
+
 	}
 		.islandora-basic-collection-grid {
 			display: flex;
@@ -87,6 +92,11 @@ body.section-islandora {
 				border: solid thin $orange;
 				width: calc(25% - 2rem) !important;
 				margin: 1rem;
+
+				@include mobile() {
+					width: calc(100% - 1rem) !important;
+					margin: .5rem !important;
+				}
 
 				.islandora-basic-collection-thumb {
 					overflow: hidden;
@@ -137,10 +147,19 @@ body.page-islandora-object-islandora-root {
 		justify-content: flex-start;
 		align-items: top;
 
+		@include mobile() {
+			flex-flow: column nowrap;
+		}
+
 		.islandora-basic-collection-object {
 			border: solid thin $orange;
 			width:calc(48% - .5rem) !important;
 			margin:.5rem !important;
+
+			@include mobile() {
+				width: calc(100% - 1rem) !important;
+				margin: .5rem !important;
+			}
 
 			.islandora-basic-collection-thumb {
 				overflow: hidden;

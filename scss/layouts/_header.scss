@@ -4,22 +4,29 @@ body.page-islandora-object-islandora-root {
 		background: rgba(0,0,0, .8);
 		z-index: 200;
 		background-image: none !important;
+
+		@include mobile() {
+			position: relative;
+		}
 	}
+
 }
 
 header.site-header__wrapper {
-	background-image: url('img/header-texture.jpg');
-	background-repeat: repeat;
 	background: rgba(0,0,0, .8);
 	position: relative;
 	width: 100%;
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
-	padding: .5rem 1rem;
+	padding: 1rem 1rem;
 	webkit-box-shadow: 3px 10px 20px -4px rgba(0,0,0,0.75);
 	-moz-box-shadow: 3px 10px 20px -4px rgba(0,0,0,0.75);
 	box-shadow: 3px 10px 20px -4px rgba(0,0,0,0.75);
+
+	@include mobile() {
+		justify-content: space-between;
+	}
 
 	.logo__wrapper {
 		display: flex;
@@ -27,10 +34,18 @@ header.site-header__wrapper {
 		justify-content: flex-start;
 		align-items: center;
 
+		@include mobile() {
+			width: 100%;
+		}
+
 		a#logo {
 			max-width: 80px;
 			display: inline-block;
 			margin-right: 1rem;
+
+			@include mobile() {
+				width: 60px;
+			}
 
 			img {
 				width: 100%;
@@ -49,6 +64,10 @@ header.site-header__wrapper {
 				max-width: 100px;
 				line-height: 1.1;
 				margin-right: 2rem;
+
+				@include mobile() {
+					display: none;
+				}
 			}
 
 			.repository_name {
@@ -58,6 +77,10 @@ header.site-header__wrapper {
 				padding-top: 3.5rem;
 				padding-left: 1rem;
 				border-left: solid thin $seafoam;
+
+				@include mobile() {
+					padding-top: 0rem;
+				}
 			}
 		}
 	}
@@ -75,6 +98,11 @@ header.site-header__wrapper {
 			color: darken($seafoam, 25%);
 			border-color: darken($seafoam, 25%) ;
 		}
+
+		@include mobile() {
+			margin-left: .5rem;
+			margin-top: 1rem;
+		}
 	}
 
 	#search-icon, .user-login-toggle {
@@ -89,6 +117,10 @@ header.site-header__wrapper {
 
 				&:hover {
 					color: darken($seafoam, 10%);
+				}
+
+				@include mobile() {
+					margin-top: 1rem;
 				}
 			}
 		}

@@ -25,6 +25,11 @@ div.tabs {
 			margin-right: 1rem;
 			transition: all .3s ease-in-out;
 
+			@include mobile() {
+				padding: .25rem;
+				margin-right: .5rem;
+			}
+
 			a {
 				border: none;
 				background: transparent !important;

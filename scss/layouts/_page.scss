@@ -7,6 +7,10 @@ body {
 	padding: 3rem;
 	background: $adminBlue;
 
+	@include mobile() {
+		padding: .5rem;
+	}
+
 	.collections-description__text {
 		max-width: 1400px;
 		margin: 1rem auto;
@@ -49,6 +53,11 @@ body.no-sidebars {
 		margin: .5rem auto !important;
 		padding: 3rem 2rem 3rem 3rem;
 		background: #fff;
+
+		@include mobile() {
+			padding: 1rem;
+			margin: .5rem;
+		}
 	}
 }
 
