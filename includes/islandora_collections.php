@@ -74,6 +74,9 @@ function pld_preprocess_islandora_basic_collection(&$variables) {
     $object_url = 'islandora/object/' . $pid;
 
     $title = $result['title']['value'];
+    if($title == '') {
+      $title = 'Untitled';
+    }
     $associated_objects_array[$pid]['pid'] = $pid;
     $associated_objects_array[$pid]['path'] = $object_url;
     $associated_objects_array[$pid]['title'] = $title;

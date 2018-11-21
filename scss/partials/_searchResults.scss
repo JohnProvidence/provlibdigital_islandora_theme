@@ -2,18 +2,46 @@
 	.islandora-solr-grid {
 		display: flex;
 		flex-flow: row wrap;
-		align-items: flex-start;
-		justify-content: top;
+		align-items: top;
+		justify-content: flex-start;
 
 		.solr-grid-field {
 			width: calc(33.33% - 2rem);
 			margin: 1rem;
-
+			border: solid thin $orange;
 			.solr-grid-thumb {
+				overflow: hidden;
 				a {
+					
+					&:hover {
+						img {
+							transform: scale(1.05);
+						}
+					}
 					img {
 						width: 100%;
-					}
+						border-radius: 0px;
+						transition: all .3s ease-in-out;
+
+				}
+			}
+		}
+
+			.solr-grid-caption {
+				font-weight: 700;
+				color: $orange;
+				text-align: center;
+				padding:0 0 1rem 0;
+				font-size: 1.2rem;
+				h4 {
+					padding: .5rem;
+				}
+				&:before {
+						content: "";
+						background: url('img/card-lines-orange.png') repeat-x #fff;
+						height: 25px;
+						display: block;
+						margin-bottom: 1rem;
 				}
 			}
 		}
