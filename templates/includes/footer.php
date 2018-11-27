@@ -26,7 +26,7 @@
   						$rc_instagram = theme_get_setting('pld_social_media_links_rc_instagram');
   					?>
   						</a>
-  						<a href="<?php echo $rc_instagram; ?>" class="icon">
+  						<a href="<?php print $rc_instagram; ?>" class="icon">
   							<i class="fab fa-instagram" aria-hidden="true"></i>
   						</a>
   					<?php endif; ?>
@@ -53,7 +53,7 @@
   					$legal = theme_get_setting('legal_notices');
   				?>
   				<span>
-  					<a href="<?php print $legal; ?>">
+  					<a href="<?php print $base_url . '/' . $legal; ?>">
   						Legal Notices and Policies
   					</a>
   				</span>
@@ -62,7 +62,7 @@
   					$terms = theme_get_setting('terms');
   				?>
   				<span>
-  					<a href="<?php print $terms; ?>">
+  					<a href="<?php print $base_url .'/' . $terms; ?>">
   						Terms of Service
   					</a>
   				</span>

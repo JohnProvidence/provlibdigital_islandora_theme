@@ -49,6 +49,14 @@ jQuery(document).ready(function($) {
 		$(this).children('span.arrow-up').toggleClass('rotated');
 	});
 
+	var compoundThumbToggle = $('.compound-thumbs-display-toggle span');
+
+	compoundThumbToggle.on('click', function() {
+		compoundThumbToggle.toggleClass('hidden');
+		$('.islandora-compound-title').toggle('fast');
+	});
+
+
 
 	// Copy Bookmark list URL
 	function copyBookmarkURL() {

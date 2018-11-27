@@ -76,16 +76,20 @@
 		a {
 			color: $seafoam;
 		}
-		margin-bottom: 1rem;
 	}
 
 	.finding_aid_btn {
-
+		margin-top: 1rem;
 		a {
 			background: $adminBlue;
 			width: auto;
 			padding: .5rem 1rem;
 			border-radius: 4px;
+			transition: all .3s ease-in-out;
+
+			&:hover {
+				background: darken($adminBlue, 10%);
+			}
 		}
 	}
 }
@@ -125,21 +129,62 @@
 
 /** Islandora Compound Batch Display **/
 .block-islandora-compound-object {
+
+	.islandora-compound-title {
+		padding-top: .5rem;
+		margin-top: 5px;
+		border-bottom: solid thin $adminBlue;
+	}
+
 	.islandora-compound-prev-next {
+		margin-bottom: .25rem;
+		
 		a {
 			color: $seafoam;
+		}
+
+		.compound-thumbs-display-toggle {
+			border-bottom: solid thin $adminBlue;
+			span {
+				width: auto;
+				padding: .5rem 1rem;
+				background: $adminBlue;
+				border-radius: 4px 4px 0px 0px;
+				-moz-border-radius: 4px 4px 0px 0px;
+				-webkit-border-radius: 4px 4px 0px 0px;
+				transition: all .3s ease-in-out;
+				cursor: pointer;
+				max-width: 225px;
+				text-align: center;
+				display:block;
+
+				&:hover {
+					background: darken($adminBlue, 10%);
+				}
+			}
+
+			span.hidden {
+				display: none;
+			}
+			
 		}
 		.islandora-compound-thumbs {
 			border-top: solid thin transparent;
 			
 			.islandora-compound-thumb {
 				display: line-block;
-				width: 200px;
+				width: calc(33.33% - 1rem);
 				max-width: none !important;
 				border-bottom: none;
-				border: solid thin $adminBlue;
-				padding: .5rem;
+				padding: .5rem 0; 
 				margin-right: .5rem;
+
+				.islandora-compound-caption {
+					max-width: none !important;
+					float: none;
+					margin-bottom: .25rem;
+					width: 100%;
+				}
 			}
 		}
 	}

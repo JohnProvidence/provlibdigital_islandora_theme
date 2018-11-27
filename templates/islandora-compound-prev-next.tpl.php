@@ -7,8 +7,12 @@
 ?>
 
 <div class="islandora-compound-prev-next">
+  <div class="compound-thumbs-display-toggle">
+    <span class="view hidden"><?php print t('View Related Objects'); ?> <i class="far fa-images"></i></span>
+    <span class="hide visible"><?php print t('Hide Related Objects'); ?> <i class="far fa-images"></i></span>
+  </div>
  <div class="islandora-compound-title"><?php
-  //print t('Part of: @parent (@count @objects)', array('@parent' => t(html_entity_decode($parent_label)), '@count' => $child_count, '@objects' => format_plural($child_count, 'object', 'objects'))); ?>
+  print t('Part of: @parent (@count @objects)', array('@parent' => t(html_entity_decode($parent_label)), '@count' => $child_count, '@objects' => format_plural($child_count, 'object', 'objects'))); ?>
  <?php if ($parent_url): ?>
     <?php print l(t('manage parent'), $parent_url, array('attributes' => array('class' => 'manage-parent-btn'))); ?>
  <?php endif; ?>
@@ -41,7 +45,7 @@
    <div class="islandora-compound-thumbs">
    <?php foreach ($themed_siblings as $sibling): ?>
      <div class="islandora-compound-thumb">
-     <span class='islandora-compound-caption'><?php print $sibling['label'];?></span>
+     <div class='islandora-compound-caption'><?php print $sibling['label'] . ' | ' . $sibling['pid']; ?></div>
      <?php print l(
        theme_image(
          array(

@@ -41,28 +41,25 @@ li.islandora-print {
 /** Interior Collections page **/
 body.section-islandora {
 
-	.block-islandora-compound-object {
-		width: auto;
-		display: inline-block;
-		float: left;
-		display: flex;
-		margin-right: .5rem;
-		padding: 1rem;
-
-		.islandora-compound-title {
+	
+.block-islandora-compound-object {
+	padding: .5rem 0;
+	
+	.islandora-compound-title {
+		display: block;
 			a.manage-parent-btn {
 				display:block;
 				text-transform: capitalize;
 			}
-			a.compound-btn {
-				
-			}
+			
 		}
 
 		.islandora-compound-thumbs {
-			background: $adminBlue;
-			padding: 1rem;
+			padding: .5rem;
 			margin-right: 1rem;
+			display: flex;
+			flex-flow: row wrap;
+
 			.islandora-compound-thumb {
 				float: none;
 				display: block;
