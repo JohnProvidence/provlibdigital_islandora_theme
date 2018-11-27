@@ -20,6 +20,6 @@
     <hr/>
   <?php endif; ?>
   <label for="list_url"><?php print t('URL'); ?></label>
-  <input id="list_url_link" name="list_url" value="<?php print $link; ?>"> <div class="share-list-url-btn">Share this List <i class="fas fa-share"></i></div>
+  <input id="list_url_link" name="list_url" value="<?php print $link; ?>"> <div class="share-list-url-btn">Copy URL <i class="far fa-copy"></i></div>
   <br>
 </div>

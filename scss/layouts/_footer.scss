@@ -3,7 +3,7 @@ footer.site-footer {
 	background: #303030;
 	background-image: url('img/footer-texture.jpg');
 	background-repeat: no-repeat;
-	background-size: 100%;
+	background-size: cover;
 
 	.site-footer__wrapper {
 		padding: 6rem 1rem 4rem;
@@ -33,6 +33,12 @@ footer.site-footer {
 			-ms-flex-pack: justify;
 			margin-bottom: 2rem;
 
+			@include tablet-portrait() {
+				-webkit-flex-flow: column nowrap;
+				-moz-flex-flow: column nowrap;
+				flex-flow: column nowrap;
+			}
+
 			.site-branding {
 				display: flex;
 				flex-flow: row wrap;
@@ -44,6 +50,11 @@ footer.site-footer {
 					max-width: 150px;
 					line-height: 1.1;
 					margin-right: 2rem;
+
+					@include mobile() {
+						font-size: 1.5rem;
+						margin-right: 1rem;
+					}
 				}
 
 				.site-footer__collections-name {
@@ -53,6 +64,11 @@ footer.site-footer {
 					padding-top: 3.5rem;
 					padding-left: 1rem;
 					border-left: solid thin $seafoam;
+
+					@include mobile() {
+						font-size:1.5rem;
+						padding-top: 1rem;
+					}
 				}
 			}
 
@@ -60,6 +76,11 @@ footer.site-footer {
 				align-self: flex-end;
 				margin-top: auto;
 				margin-left: auto;
+
+				@include mobile() {
+					align-self: flex-start;
+					margin-left: 0;
+				}
 
 				a.icon {
 					border: 2px solid #4f4f4f;
@@ -117,6 +138,10 @@ footer.site-footer {
 				opacity: .8;
 				padding: 2rem;
 				width: 100%;
+
+				@include mobile() {
+					padding: 1rem;
+				}
 			}
 	}
 }
@@ -125,6 +150,16 @@ footer.site-footer {
 	.footer_col {
 		width:calc(33.33% - 1rem);
 		margin: .5rem;
+
+		@include tablet-landscape() {
+			width:calc(33.33% - 2rem);
+			margin: 1rem;
+		}
+
+		@include tablet-portrait() {
+			width: calc(100% - 1rem);
+			margin: 1rem;
+		}
 	}
 
 	.site-footer__vitals__address {
@@ -163,6 +198,15 @@ footer.site-footer {
 		}
 
 		.site-footer__vitals__hours {
+
+			@include mobile() {
+				margin-bottom: 2rem;
+			}
+
+			@include tablet-landscape() {
+				margin-right: 1rem;
+			}
+
 			h3 {
 				margin-top: 0;
 				margin-bottom: .5rem;
@@ -200,6 +244,11 @@ footer.site-footer {
 			margin: -2.5rem;
 			max-height: 315px;
 			cursor: pointer;
+
+			@include mobile() {
+				background-size: 100%;
+				margin: 0;
+			}
 		}
 }
 

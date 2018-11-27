@@ -1,9 +1,47 @@
 
 fieldset.islandora-metadata {
 	border: solid thin transparent;
+	margin-top: 2rem;
+	padding: 0 !important;
+	legend {
+		span.fieldset-legend {
+			display: block;
+			width: auto;
+			padding: .5rem 1rem;
+			background: $adminBlue;
+			margin-bottom: 0;
+			font-size: 1rem;
+			border-radius: 4px 4px 0px 0px;
+			-moz-border-radius: 4px 4px 0px 0px;
+			-webkit-border-radius: 4px 4px 0px 0px;
+			transition: all .3s ease-in-out;
+			cursor: pointer;
+
+			&:hover {
+				background: darken($adminBlue, 10%);
+			}
+
+			span.arrow-up {
+				margin-left: .5rem;
+				font-size: .8rem;
+				transition: all .3s ease-in-out;
+				display: inline-block;
+			}
+
+			span.arrow-up.rotated {
+				transform: rotate(180deg);
+			}
+		}
+
+	}
 
 	.fieldset-wrapper {
+		display: none;
+		transition: all .3s ease-in-out;
 		dl {
+			border-bottom: solid thin $adminBlue;
+			border-left: solid thin $adminBlue;
+			border-right: solid thin $adminBlue;
 			dt, dd {
 				text-align: left;
 				border-top: solid thin $adminBlue;
@@ -22,6 +60,7 @@ fieldset.islandora-metadata {
 					color: #000;
 					background: $adminBlue;
 				}
+
 			}
 			dd {
 				border-left: solid thin $adminBlue;
@@ -32,5 +71,9 @@ fieldset.islandora-metadata {
 				}
 			}
 		}
+	}
+
+	.fieldset-wrapper.expanded {
+		display: block;
 	}
 }

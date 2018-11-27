@@ -76,10 +76,8 @@ function pld_preprocess_islandora_basic_image(array &$variables) {
   $copyright = $object->getDatastream('COPYRIGHT-RESTRICTION');
   $variables['under_copyright'] = $copyright;
 
-  $marcxml_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/download_mods_as_marxml" download="'.$obj_pid.'-'.$islandora_object->label.'/_marc.xml">Download MARCXML</a></div>';
-  $variables['marcxml_btn'] = $marcxml_btn;
-
-  if(isset($mods)):
+  // generate datastream buttons
+    if(isset($mods)):
     $mods_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/MODS/view" download="'.$obj_pid.'-'.$islandora_object->label.'/_MODS.xml">Download MODS XML</a></div>';
   $variables['mods_btn'] = $mods_btn;
   else:
@@ -101,8 +99,49 @@ function pld_preprocess_islandora_basic_image(array &$variables) {
   endif;
 
   if(isset($copyright)):
-    $variables['copyright'] = '<div class="copyright_restriction">This image is under copyright restriction. <br><br> A print is availble for viewing at the Providence Public Library.';
+    $variables['copyright'] = '<div class="copyright_restriction">This image is under copyright restriction. <br><br> A print is availble for viewing at the Providence Public Library.</div>';
   endif;
+
+  $marcxml_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/download_mods_as_marxml" download="'.$obj_pid.'-'.$islandora_object->label.'/_marc.xml">Download MARCXML</a></div>';
+  $variables['marcxml_btn'] = $marcxml_btn;
+
+  // get content models
+  $obj_models = $object->relationships->get('info:fedora/fedora-system:def/model#', 'hasModel');
+  $content_model = $obj_models[0]['object']['value'];
+  //var_dump($content_model);
+
+
+  $parents = $object->getParents();
+      //var_dump($parents);
+  if(!empty($parents)) {
+    $parent_object = islandora_object_load($parents[0]);
+    $parent_label = $parent_object->label;
+    $variables['parent_collection'] = $parent_label;
+    $variables['parent_url'] = '/islandora/object/'.$parent_object->id;
+    $finding_aid = $parent_object->getDatastream('FINDING_AID');
+  
+    if($finding_aid != FALSE) {
+      $finding_aid_button = '<div class="btn finding_aid_btn"><a href="/islandora/object/'.$parent_object->id.'/datastream/FINDING_AID/view">Download Collection Finding Aid <i class="far fa-file-alt"></i></a></div>';
+          $variables['collection_finding_aid_button'] = $finding_aid_button;
+      }
+      
+    } // end if not empty $parents
+
+    if(empty($parents)) {
+       $relationships = $object->relationships->get('info:fedora/fedora-system:def/relations-external#', 'isConstituentOf');
+       $parent = $relationships[0]['object']['value'];
+       $parent_object = islandora_object_load($parent);
+       $collection = $parent_object->getParents();
+       $collection_object = islandora_object_load($collection[0]);
+       $variables['parent_collection'] = $collection_object->label;
+       $variables['parent_url'] = '/islandora/object/'.$collection_object->id;
+       $finding_aid = $collection_object->getDatastream('FINDING_AID');
+
+       if($finding_aid != FALSE) {
+         $finding_aid_button = '<div class="btn finding_aid_btn"><a href="/islandora/object/'.$collection_object->id.'/datastream/FINDING_AID/view">Download Collection Finding Aid <i class="far fa-file-alt"></i></a></div>';
+          $variables['collection_finding_aid_button'] = $finding_aid_button;
+       }
+    }
 
 }
 

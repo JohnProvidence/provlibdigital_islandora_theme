@@ -42,4 +42,27 @@ jQuery(document).ready(function($) {
 		facets.toggleClass('hidden');
 	});
 
+	var metadataLegend = $('span.fieldset-legend');
+
+	metadataLegend.on('click', function() {
+		$('.fieldset-wrapper').toggleClass('expanded');
+		$(this).children('span.arrow-up').toggleClass('rotated');
+	});
+
+
+	// Copy Bookmark list URL
+	function copyBookmarkURL() {
+		var listURL = $('#list_url_link').val();
+		var copyBtn = $('.share-list-url-btn');
+
+		copyBtn.on('click', function(e) {
+			var $temp = $('<input>');
+			$('body').append($temp);
+			$temp.val(listURL).select();
+			document.execCommand('copy');
+			$temp.remove();
+		});
+	} 
+	copyBookmarkURL();
+
 });

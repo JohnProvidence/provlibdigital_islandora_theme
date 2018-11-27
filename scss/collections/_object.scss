@@ -25,48 +25,6 @@
 			font-size: 1.1rem;
 			margin: 1rem 0;
 		}
-		.in-collections-listing {
-			margin: 1rem 0;
-
-			h2 {
-				color: $seafoam;
-				border-bottom: solid thin $adminBlue;
-				margin-bottom: 1rem;
-			}
-
-			ul {
-				display: flex;
-				flex-flow: row wrap;
-				align-items: center;
-				justify-content: flex-start;
-
-				li {
-					list-style: none;
-					margin: .5rem;
-				}
-				li.collection-label {
-					color: $orange;
-					font-weight: 700;
-					font-size: 1.2rem;
-				}
-				li.finding_aid_url {
-
-					svg.svg-inline--fa {
-						display: inline-block;
-						margin-right: .5rem;
-					}
-					padding: .5rem;
-					background: $adminBlue;
-					border-radius: 4px;
-					transition: all .3s ease-in-out;
-
-					&:hover {
-						background:darken($adminBlue, 10%);
-					}
-				}
-			}
-
-		}
 
 		table {
 			margin-top: 1rem;
@@ -103,6 +61,31 @@
 					}
 				}
 			}
+		}
+	}
+}
+
+/** In collections listing **/
+.parent-collection-info__wrapper {
+	margin-top: 1rem;
+	border-top: solid thin $adminBlue;
+	border-bottom: solid thin $adminBlue;
+	padding: 1rem 0;
+
+	h3 {
+		a {
+			color: $seafoam;
+		}
+		margin-bottom: 1rem;
+	}
+
+	.finding_aid_btn {
+
+		a {
+			background: $adminBlue;
+			width: auto;
+			padding: .5rem 1rem;
+			border-radius: 4px;
 		}
 	}
 }

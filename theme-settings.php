@@ -22,13 +22,6 @@ function pld_form_system_theme_settings_alter(&$form, &$form_state) {
     '#collapsed'    => FALSE,
   );
 
-  $form['pld_islandora_settings']['pld_collection_bg_datastream'] = array(
-    '#type'         => 'fieldset',
-    '#title'        => t('Collection View Background Datastream'),
-    '#default_value'  => (theme_get_setting('pld_collection_bg_datastream', 'pld') ? theme_get_setting('slideshow_bg_datastream', 'pld') : "TN"),
-    '#description'  => t('The datastream to use an an objects image representation in the collection view (EX: OBJ, MEDIUM, TN), defaults to TN'),
-  );
-
   $form['pld_collections_description'] = array(
     '#type'         => 'fieldset',
     '#title'        => t('Collections Description'),
