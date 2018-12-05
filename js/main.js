@@ -73,4 +73,19 @@ jQuery(document).ready(function($) {
 	} 
 	copyBookmarkURL();
 
+	// IA Bookreader overrides
+
+	var bookreader_options = {
+			ui: 'responsive',
+			flipSpeed: 'slow',
+			showLogo: false,
+	};
+	
+	if(typeof Bookreader == 'function') {
+		var br = new Bookreader(bookreader_options);
+	}
+	
+
+	br.init();
+
 });

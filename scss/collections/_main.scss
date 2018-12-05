@@ -6,7 +6,7 @@ li.islandora-print {
 
 /** Basic Collection Overview page **/
 
-.islandora-basic-collection-display-switch {
+.islandora-basic-collection-display-switch, .isladora-objects-display-switch {
 	padding: 1rem;
 
 	@include mobile() {
@@ -197,4 +197,10 @@ body.page-islandora-object-islandora-root {
 			}
 		}
 	}
+}
+
+/* solr collection display */
+
+.islandora-solr-collection-display {
+	margin: 0 auto;
 }

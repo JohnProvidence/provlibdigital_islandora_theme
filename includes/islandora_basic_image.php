@@ -102,7 +102,7 @@ function pld_preprocess_islandora_basic_image(array &$variables) {
     $variables['copyright'] = '<div class="copyright_restriction">This image is under copyright restriction. <br><br> A print is availble for viewing at the Providence Public Library.</div>';
   endif;
 
-  $marcxml_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/download_mods_as_marxml" download="'.$obj_pid.'-'.$islandora_object->label.'/_marc.xml">Download MARCXML</a></div>';
+  $marcxml_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/download_mods_as_marxml">Download MARCXML</a></div>';
   $variables['marcxml_btn'] = $marcxml_btn;
 
   // get content models

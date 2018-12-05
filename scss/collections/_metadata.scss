@@ -77,3 +77,16 @@ fieldset.islandora-metadata {
 		display: block;
 	}
 }
+
+.islandora-metadata-fields {
+	dd {
+		a {
+			color: $seafoam;
+		}
+		p {
+			a {
+				color: $seafoam;
+			}
+		}
+	}
+}

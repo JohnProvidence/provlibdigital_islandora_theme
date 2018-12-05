@@ -1,3 +1,7 @@
+.islandora-object-title {
+	margin-top: 1rem;
+}
+
 .islandora-basic-image-object {
 	.islandora-basic-image-title {
 		margin-top: 1rem;
@@ -188,4 +192,12 @@
 			}
 		}
 	}
+}
+
+/** override internet archive book reader **/
+#book-viewer {
+	margin-top: 1rem;
+}
+#BRpage {
+	width: auto !important;
 }
