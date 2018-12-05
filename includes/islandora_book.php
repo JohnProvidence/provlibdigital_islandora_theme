@@ -21,7 +21,7 @@ function pld_preprocess_islandora_book_book(array &$variables) {
     $variables['mods_btn'] = '';
   endif;
 
-  $marcxml_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$object->id.'/download_mods_as_marxml">Download MARCXML</a></div>';
+  $marcxml_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$object->id.'/view_mods_as_marxml">Download MARCXML</a></div>';
   $variables['marcxml_btn'] = $marcxml_btn;
 
   if(isset($dc)):
