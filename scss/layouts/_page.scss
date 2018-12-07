@@ -3,6 +3,10 @@ body {
 	font-size: 16px;
 }
 
+h1.title {
+	color: $orange;
+}
+
 .collections-description__wrapper {
 	padding: 3rem;
 	background: $adminBlue;

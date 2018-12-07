@@ -6,7 +6,7 @@ li.islandora-print {
 
 /** Basic Collection Overview page **/
 
-.islandora-basic-collection-display-switch, .isladora-objects-display-switch {
+.islandora-basic-collection-display-switch, .islandora-objects-display-switch {
 	padding: 1rem;
 
 	@include mobile() {
@@ -111,6 +111,9 @@ body.section-islandora {
 				.islandora-basic-collection-caption {
 					text-align: center;
 					background:#fff;
+					text-overflow: ellipsis;
+					overflow: hidden;
+					white-space: nowrap;
 					
 					&:before {
 						content: "";
@@ -132,12 +135,66 @@ body.section-islandora {
 			padding-top: .5rem;
 			margin-bottom: .5rem;
 		}
+
+	/** islandora solr collection grid **/
+
+	.islandora-objects-grid {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: flex-start;
+
+		include mobile() {
+			flex-flow: column nowrap;
+		}
+
+		.islandora-objects-grid-item {
+			width: calc(33.33% - 1rem) !important;
+			margin: .5rem !important;
+			overflow: hidden;
+			border:solid thin $orange;
+
+			.islandora-object-thumb {
+				width: 100%;
+				overflow: hidden;
+
+				a {
+					img {
+						width: 100%;
+						max-width: 100%;
+						transition: all .3s ease-in-out;
+						&:hover {
+							transform: scale(1.05);
+						}
+					}
+				}
+			}
+
+			.islandora-object-caption {
+				font-size: 1.5rem;
+				text-align: center;
+				background: #fff;
+				font-weight: $semibold;
+				color: $orange;
+
+				h4 {
+					padding: 1rem 0;
+				}
+				&:before {
+					content: "";
+					background: url('img/card-lines-orange.png') repeat-x #fff;
+					height: 25px;
+					display: block;
+				}
+			}
+		}
+	}
 	
 }
 
 /** Main Page collection display **/
 body.page-islandora-object-islandora-root {
-	
+
+	/** Basic Collection **/	
 	.islandora-basic-collection-grid {
 		display: flex;
 		flex-flow: row wrap;
@@ -197,10 +254,57 @@ body.page-islandora-object-islandora-root {
 			}
 		}
 	}
-}
 
-/* solr collection display */
+	/** solr collection display **/
 
-.islandora-solr-collection-display {
-	margin: 0 auto;
+	.islandora-objects-grid {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: flex-start;
+
+		include mobile() {
+			flex-flow: column nowrap;
+		}
+
+		.islandora-objects-grid-item {
+			width: calc(48% - .5rem) !important;
+			margin: .5rem !important;
+			overflow: hidden;
+			border:solid thin $orange;
+
+			.islandora-object-thumb {
+				width: 100%;
+				overflow: hidden;
+
+				a {
+					img {
+						width: 100%;
+						max-width: 100%;
+						transition: all .3s ease-in-out;
+						&:hover {
+							transform: scale(1.05);
+						}
+					}
+				}
+			}
+
+			.islandora-object-caption {
+				font-size: 1.5rem;
+				text-align: center;
+				background: #fff;
+				font-weight: $semibold;
+				color: $orange;
+
+				h4 {
+					padding: 1rem 0;
+				}
+				&:before {
+					content: "";
+					background: url('img/card-lines-orange.png') repeat-x #fff;
+					height: 25px;
+					display: block;
+				}
+			}
+		}
+	}
 }

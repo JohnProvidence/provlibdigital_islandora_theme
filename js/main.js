@@ -29,7 +29,7 @@ jQuery(document).ready(function($) {
 
 	$('.view-all-collections').on('click', function() {
 		$('html,body').animate({
-			scrollTop: $('.islandora-basic-collection-wrapper').offset().top - 200
+			scrollTop: $('.islandora-collections-wrapper').offset().top - 200
 		}, 'slow');
 	});
 
@@ -83,9 +83,10 @@ jQuery(document).ready(function($) {
 	
 	if(typeof Bookreader == 'function') {
 		var br = new Bookreader(bookreader_options);
+		br.init();
 	}
 	
 
-	br.init();
+	
 
 });
