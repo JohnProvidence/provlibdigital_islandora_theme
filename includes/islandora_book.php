@@ -55,7 +55,7 @@ function pld_preprocess_islandora_book_book(array &$variables) {
     'pages' => islandora_paged_content_get_pages($object),
     'page_progression' => islandora_paged_content_get_page_progression($object),
   );
-
+  
   $variables['display_metadata'] = variable_get('islandora_book_metadata_display', FALSE);
   $variables['parent_collections'] = islandora_get_parents_from_rels_ext($object);
   $variables['metadata'] = islandora_retrieve_metadata_markup($object);
