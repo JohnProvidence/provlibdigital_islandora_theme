@@ -110,6 +110,12 @@ body.page-islandora-object-islandora-root {
 	}
 }
 
+body.one-sidebar.page-islandora-object-islandoraroot {
+	section#content {
+		margin: 0 auto !important;
+	}
+}
+
 .button--primary {
 	cursor: pointer;
 	display: inline-block;
