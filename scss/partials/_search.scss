@@ -148,3 +148,41 @@
 		}
 	}
 }
+
+/** Search Navigation **/
+.pld-solr-search-navigation__wrapper {
+	border-top: solid thin $adminBlue;
+	padding-top: .5rem;
+	h3.title {
+		display: none;
+	}
+	#islandora-solr-search-return-link {
+		display: block;
+		@include btn();
+		max-width: 150px;
+		margin-bottom: .5rem;
+	}
+
+	#islandora-solr-search-prev-link, #islandora-solr-search-next-link {
+		display: inline-block;
+		margin-top: .5rem;
+		margin-right: 1rem;
+		padding: .5rem 1rem;
+		border: solid thin $orange;
+		border-radius: 4px;
+		transition: all .3s ease;
+		background: transparent;
+		a {
+			color: $orange;
+			transition: all .3s ease;
+		}
+		&:hover {
+			background: $orange;
+			a {
+				color: #fff;
+			}
+		}
+	}
+}
+
+

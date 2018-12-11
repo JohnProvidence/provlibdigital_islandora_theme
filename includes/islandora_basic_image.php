@@ -73,8 +73,8 @@ function pld_preprocess_islandora_basic_image(array &$variables) {
   $mods = $object->getDatastream('MODS');
   $dc = $object->getDatastream('DC');
   $img_obj = $object->getDatastream('OBJ');
-  $copyright = $object->getDatastream('COPYRIGHT-RESTRICTION');
-  $variables['under_copyright'] = $copyright;
+  $copyright = $object->getDatastream('COPYRIGHT');
+  $copyright_image = drupal_get_path('theme', 'pld') . '/img/image_under_copyright.png';
 
   // generate datastream buttons
     if(isset($mods)):
@@ -98,8 +98,10 @@ function pld_preprocess_islandora_basic_image(array &$variables) {
     $variable['img_btn'] = NULL;
   endif;
 
-  if(isset($copyright)):
-    $variables['copyright'] = '<div class="copyright_restriction">This image is under copyright restriction. <br><br> A print is availble for viewing at the Providence Public Library.</div>';
+  if($copyright != FALSE):
+    $variables['under_copyright'] = '<div class="copyright_restriction">This image is under copyright restriction. <br><br> A print is availble for viewing at the Providence Public Library.</div>';
+  else:
+    $varibles['under_copyright'] = NULL;
   endif;
 
   $marcxml_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/view_mods_as_marcxml">View MARCXML</a></div>';
