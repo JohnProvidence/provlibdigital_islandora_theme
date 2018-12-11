@@ -88,7 +88,7 @@ function pld_preprocess_islandora_basic_collection(&$variables) {
     $medium_size = '';
     
     $no_thumb_path = drupal_get_path('theme', 'pld');
-    $no_thumb = theme('image', array('path' => "$no_thumb_path/img/ppl-pattern.png", 'alt' => $title));
+    $no_thumb = theme('image', array('path' => "$no_thumb_path/img/no_image_available.png", 'alt' => $title));
 
      if(isset($fc_object['MEDIUM_SIZE']) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $fc_object['MEDIUM_SIZE'])) {
       $medium_size = theme('image', array('path' => "$object_url/datastream/MEDIUM_SIZE/view", 'alt' => $title));

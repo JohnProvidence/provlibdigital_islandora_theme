@@ -78,31 +78,31 @@ function pld_preprocess_islandora_basic_image(array &$variables) {
 
   // generate datastream buttons
     if(isset($mods)):
-    $mods_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/MODS/view" download="'.$obj_pid.'-'.$islandora_object->label.'/_MODS.xml">Download MODS XML</a></div>';
+    $mods_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/MODS/view" download="'.$obj_pid.'-'.$islandora_object->label.'/_MODS.xml">Download MODS XML</a> <i class="fas fa-file-download"></i></div>';
   $variables['mods_btn'] = $mods_btn;
   else:
-    $variables['mods_btn'] = '';
+    $variables['mods_btn'] = NULL;
   endif;
 
   if(isset($dc)):
-      $dc_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/DC/view" download="'.$obj_pid.'-'.$islandora_object->label.'/_DC.xml">Download DC XML</a></div>';
+      $dc_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/DC/view" download="'.$obj_pid.'-'.$islandora_object->label.'/_DC.xml">Download DC XML</a> <i class="fas fa-file-download"></i></div>';
     $variables['dc_btn'] = $dc_btn;
   else:
-      $variables['dc_btn'] = '';
+      $variables['dc_btn'] = NULL;
   endif;
 
   if(isset($img_obj) && $copyright == FALSE):
-    $img_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/OBJ/view" download="'.$obj_pid.'-'.$islandora_object->label.'/_OBJ.jpg">Download Image</a></div>';
+    $img_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/OBJ/view" download="'.$obj_pid.'-'.$islandora_object->label.'/_OBJ.jpg">Download Image <i class="fas fa-file-download"></i></a></div>';
     $variables['img_btn'] = $img_btn; 
   else:
-    $variable['img_btn'] = '';
+    $variable['img_btn'] = NULL;
   endif;
 
   if(isset($copyright)):
     $variables['copyright'] = '<div class="copyright_restriction">This image is under copyright restriction. <br><br> A print is availble for viewing at the Providence Public Library.</div>';
   endif;
 
-  $marcxml_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/view_mods_as_marxml">Download MARCXML</a></div>';
+  $marcxml_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/view_mods_as_marcxml">View MARCXML</a></div>';
   $variables['marcxml_btn'] = $marcxml_btn;
 
   // get content models
@@ -121,7 +121,7 @@ function pld_preprocess_islandora_basic_image(array &$variables) {
     $finding_aid = $parent_object->getDatastream('FINDING_AID');
   
     if($finding_aid != FALSE) {
-      $finding_aid_button = '<div class="btn finding_aid_btn"><a href="/islandora/object/'.$parent_object->id.'/datastream/FINDING_AID/view">Download Collection Finding Aid <i class="far fa-file-alt"></i></a></div>';
+      $finding_aid_button = '<div class="btn finding_aid_btn"><a href="/islandora/object/'.$parent_object->id.'/datastream/FINDING_AID/view">Download Collection Finding Aid <i class="fas fa-file-download"></i></a></div>';
           $variables['collection_finding_aid_button'] = $finding_aid_button;
       }
       

@@ -68,19 +68,19 @@ body.no-sidebars {
 body.one-sidebar {
 	section#content {
 		float: none !important;
-		width:calc(85% - 1rem) !important;
-		margin: .5rem !important;
+		width:calc(75% - 1rem) !important;
+		margin: .5rem  .25rem !important;
 		margin-top: -5px;
 		padding: 3rem 2rem 3rem 3rem;
 		background: #fff;
 	}
 
 	#sidebar-first {
-		float: none;
-		width: calc(15% - 1rem);
-		margin-left: 0rem;
-		margin-top: 2rem;
-		padding-left: 1rem;
+		float: none !important;
+		width: calc(25% - 1rem) !important;
+		margin-left: 0rem !important;
+		margin-top: 2rem !important;
+		padding-left: 1rem !important;
 		
 	}
 }

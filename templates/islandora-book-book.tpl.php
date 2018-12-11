@@ -27,6 +27,10 @@
 <?php endif; ?>
 
 <div class="islandora-basic-image-download-btns__wrapper">
+
+    <?php if(isset($variables['pdf_btn'])): ?>
+      <?php print $variables['pdf_btn']; ?>
+    <?php endif; ?>
           
       <?php if(isset($variables['mods_btn'])): ?>
           <?php print $variables['mods_btn']; ?>

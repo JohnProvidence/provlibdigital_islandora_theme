@@ -57,17 +57,23 @@ $smMobile: "(max-width:400px)";
 }
 
 @mixin btn {
-	background: $seafoam;
+	background: $adminBlue;
+	color: #000;
 	width: auto;
 	padding: .5rem 1rem;
 	border: solid thin transparent;
-	color: #fff;
-	border-radius: 24px;
+	border-radius: 4px;
 	min-width: 100px;
 	text-align: center;
 	transition: all .3s ease-in-out;
 
+	a {
+		.svg-inline--fa {
+			margin-left: .25rem;
+		}
+	}
+
 	&:hover {
-		background: darken($seafoam, 15%);
+		background: darken($adminBlue, 15%);
 	}
 }

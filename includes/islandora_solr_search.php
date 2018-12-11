@@ -46,4 +46,87 @@ function pld_islandora_solr_facet_wrapper($variables) {
   return $output;
 }
 
+function pld_preprocess_islandora_solr_grid(&$variables) {
+	 module_load_include('inc', 'islandora_paged_content', 'includes/utilities');
+	$num_results = count($variables['results']);
+	$data = array();
+	$no_thumb_path = drupal_get_path('theme', 'pld');
+    $no_thumb = $base_url ."/$no_thumb_path/img/no_image_available.png";
+    
+    $copyright_img = $base_url ."/$no_thumb_path/img/image_under_copyright.png";
+
+	for($i = 0; $i <= $num_results; $i++) {
+
+		$image = NULL;
+		$pid = $variables['results'][$i]['PID'];
+		if(isset($pid)):
+			$object = islandora_object_load($pid);
+			
+			$obj_models = $object->relationships->get('info:fedora/fedora-system:def/model#', 'hasModel');
+			$obj_model = $obj_models[0]['object']['value'];
+
+			$copyright = $object->getDatastream('COPYRIGHT');
+
+			if($obj_model == 'islandora:compoundCModel'):
+				$parts = islandora_compound_object_get_parts($pid);
+				$obj_count = count($parts);
+				
+				if($obj_count > 0):
+					$first_child = $parts[0];
+					
+					$image ='/islandora/object/'.$first_child.'/datastream/MEDIUM_SIZE/view';
+				else:
+					$image = $no_thumb;
+				endif;
+			endif; // end islandora:compoundCModel
+
+
+			if($obj_model == 'islandora:sp_basic_image' && $copyright == FALSE):
+				$image ='/islandora/object/'.$pid.'/datastream/MEDIUM_SIZE/view';
+			endif;
+
+			if($obj_model == 'islandora:collectionCModel' && $copyright == FALSE):
+				$image = '/islandora/object/'.$pid.'/datastream/TN/view';
+			endif;
+
+			if($obj_model == 'islandora:pageCModel' && $copyright == FALSE):
+				$image = '/islandora/object/'.$pid.'/datastream/JPG/view';
+			endif;
+
+			if($obj_model == 'islandora:bookCModel'):
+				$pages = islandora_paged_content_get_pages($object);
+				reset($pages);
+				$first_key = key($pages);
+				$page_one = islandora_object_load($first_key);
+				$jpg = $page_one->getDatastream('JPG');
+
+				if(isset($jpg)):
+					$image = '/islandora/object/'.$page_one.'/datastream/JPG/view';
+				else:
+					$image = $no_thumb;
+				endif;
+			endif;
+
+			if($copyright != FALSE):
+				$image = $copyright_img;
+			endif;	
+
+
+			$data[] = array(
+				'pid' => $variables['results'][$i]['PID'],
+				'label' => $object->label,
+				'thumbnail_image' => $image,
+				'object_url' => '/islandora/object/'.$pid,
+				'query' => $variables['results'][$i]['object_url_params'],
+				'fragment' => isset($variables['results'][$i]['object_url_fragment']) ? $variables['results'][$i]['object_url_fragment'] : '',
+				'thumbnail_query' => $variables['results'][$i]['thumbnail_url_params'],
+			);
+
+		$variables['results'][$i]['image_url'] = $image;
+	
+	endif; 
+	
+	}
+}
+
 ?>
