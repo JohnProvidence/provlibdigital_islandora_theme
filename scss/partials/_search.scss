@@ -166,20 +166,22 @@
 	#islandora-solr-search-prev-link, #islandora-solr-search-next-link {
 		display: inline-block;
 		margin-top: .5rem;
-		margin-right: 1rem;
-		padding: .5rem 1rem;
-		border: solid thin $orange;
-		border-radius: 4px;
-		transition: all .3s ease;
-		background: transparent;
+		overflow: hidden;
+		
 		a {
 			color: $orange;
+			border: solid thin $orange;
+			padding: .5rem 1rem;
 			transition: all .3s ease;
+			background: transparent;
+			border-radius: 4px;
+			margin-right: 1rem;
 		}
 		&:hover {
 			background: $orange;
 			a {
 				color: #fff;
+				background: $orange;
 			}
 		}
 	}

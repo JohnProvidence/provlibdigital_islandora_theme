@@ -81,6 +81,9 @@ body.one-sidebar {
 		margin-left: 0rem !important;
 		margin-top: 2rem !important;
 		padding-left: 1rem !important;
+		position: -webkit-sticky;
+		position: sticky;
+		top: 0;
 		
 	}
 }
