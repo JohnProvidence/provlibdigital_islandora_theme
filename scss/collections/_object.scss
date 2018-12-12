@@ -206,3 +206,37 @@
 #BRtoolbar, #BRnav, #BRnavCntlBtm {
 	background-color: $adminBlue !important;
 }
+
+/** MARCxml **/
+body[class*="-view_mods_as_marcxml"] {
+	#content {
+		#content-area {
+			a {
+				@include btn();
+				margin-top: 1rem;
+				margin-bottom: 1rem;
+				display: inline-block;
+			}
+
+			table {
+				tbody {
+					border: solid thin $adminBlue;
+					tr {
+						th, td {
+							padding: 1rem;
+						}
+						th {
+							background: $adminBlue;
+							border-bottom: solid thin #fff;
+						}
+
+						td {
+							border-bottom: solid thin $adminBlue;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
