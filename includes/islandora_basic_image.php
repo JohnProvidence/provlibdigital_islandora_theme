@@ -148,7 +148,7 @@ function pld_preprocess_islandora_basic_image(array &$variables) {
 
     // Social media sharing buttons
     $path = $GLOBALS['base_url'];
-    $object_url =  'https:'.$path .'/islandora/object/'.$obj_pid;
+    $object_url =  $path .'/islandora/object/'.$obj_pid;
    
    $share_url = 'http://www.facebook.com/sharer.php?s=100&p[title]='.$object->label.'&p[summary]='.$variables['dc_array']['dc:description']['value'].'&p[url]='.$object_url.'&p[images][0]='.$object_url.'/datastream/OBJ/view';
    
