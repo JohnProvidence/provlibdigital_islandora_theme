@@ -240,3 +240,32 @@ body[class*="-view_mods_as_marcxml"] {
 	}
 }
 
+/** Social Media Share Buttons **/
+.social-sharing-buttons {
+	.social-title {
+		font-family: $semibold;
+		color: $seafoam;
+		margin-bottom: 1rem;
+	}
+
+	#fb-share, #twitter-share {
+		color: $seafoam;
+		font-size: 1.2rem;
+		border: solid thin $seafoam;
+		width: 35px;
+		height: 35px;
+		text-align: center;
+		border-radius: 50%;
+		padding-top: .35rem;
+		transition: all .3s ease-in-out;
+		cursor: pointer;
+		display: inline-block;
+		margin-right: .5rem;
+
+		&:hover {
+			border: solid thin transparent;
+			background: $adminBlue;
+		}
+	}
+
+}

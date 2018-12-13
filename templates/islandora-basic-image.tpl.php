@@ -11,6 +11,11 @@
 
 <div class="islandora-basic-image-object islandora" vocab="http://schema.org/" prefix="dcterms: http://purl.org/dc/terms/" typeof="ImageObject">
   <div class="islandora-basic-image-content-wrapper clearfix">
+    <div class="social-sharing-buttons">
+      <div class="social-title">Share This Object:</div>
+      <?php print $variables['facebook_button']; ?>
+      <?php print $variables['twitter_button']; ?>
+    </div>
     <!-- <?php if (isset($variables['obj_label'])): ?>
       <div class="islandora-basic-image-title">
         <h2><?php print $variables['obj_label']; ?></h2>

@@ -87,11 +87,14 @@ jQuery(document).ready(function($) {
 	}
 	
 	// sticky sidebar
-	var $sidebar = $('.pld-facets-block'),
-		$window = $(window),
-		offset = $sidebar.offset();
-		topPadding = 50;
+	var $sidebar = $('.pld-facets-block');
+	
+	
+		var $window = $(window);
+		var offset = $sidebar.offset();
+		var topPadding = 50;
 
+	if(typeof offset != 'undefined') {
 		$window.scroll(function() {
 			if($window.scrollTop() > offset.top) {
 				$sidebar.stop().animate({
@@ -103,6 +106,24 @@ jQuery(document).ready(function($) {
 				});
 			}
 		});
+	}
+		
 	
 
+		$('#fb-share').on('click', function() {
+			var title = $(this).attr('data-title');
+			var url = $(this).attr('data-url');
+			/*var url = "https://provlibdigital.org";*/
+			var image = $(this).attr('data-image');
+			var descr = $(this).attr('data-descrip');
+			var winWidth = $(this).attr('data-width');
+			var winHeight = $(this).attr('data-height');
+			var winTop = (screen.height / 2) - (winHeight / 2);
+        	var winLeft = (screen.width / 2) - (winWidth / 2);
+    
+        	window.open('http://www.facebook.com/sharer.php?u=' + url + '', 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width='+winWidth+',height='+winHeight);
+	
+		});
+	
+	
 });

@@ -84,6 +84,22 @@
 	</div><!-- ./main -->
 </div>
 
+<?php if($current_path === 'islandora/object/islandora:root'):
+
+	 if($page['recently_added_objects']):
+?>
+	<div class="pld_recently_added_collection_objects">
+		<div class="pld_recently_added_objects_wrapper">
+			<?php print render($page['recently_added_objects']); ?>
+		</div>
+	</div>
+
+<?php
+	 endif;
+?>
+
+<?php endif; ?>
+
 <?php include('includes/search-modal.php'); ?>
 
 <?php include('includes/footer.php'); ?>
