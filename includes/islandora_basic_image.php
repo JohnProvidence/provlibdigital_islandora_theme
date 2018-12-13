@@ -150,13 +150,14 @@ function pld_preprocess_islandora_basic_image(array &$variables) {
     $path = $GLOBALS['base_url'];
     $object_url =  $path .'/islandora/object/'.$obj_pid;
    
-   $share_url = 'http://www.facebook.com/sharer.php?s=100&p[title]='.$object->label.'&p[summary]='.$variables['dc_array']['dc:description']['value'].'&p[url]='.$object_url.'&p[images][0]='.$object_url.'/datastream/OBJ/view';
    
     $facebook_button = '<div id="fb-share" data-url="'.$object_url.'" data-title="'.$object->label.'" data-descrip="'.$variables['description'].'" data-image="'.$object_url. '/datastream/OBJ/view" data-width="520" data-height="350"><i class="fab fa-facebook-f"></i></div>';
 
     $variables['facebook_button'] = $facebook_button;
 
-    $twitter_button = '<div id="twitter-share"><a href=""><i class="fab fa-twitter"></i></a></div>';
+    $twitter_share_url = 'https://twitter.com/?status='.$object->label.' View this image at: http://'.$object_url;
+
+    $twitter_button = '<div id="twitter-share"><a href="'.$twitter_share_url.'" target="_blank"><i class="fab fa-twitter"></i></a></div>';
     $variables['twitter_button'] = $twitter_button;
 
 }
