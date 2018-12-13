@@ -1,0 +1,73 @@
+.pld_recently_added_objects_wrapper {
+	margin-top: 4rem;
+	background-color: #ccc;
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+
+	
+
+
+	.pld-recently-added-objects-block {
+		max-width: 1400px;
+		margin: 0 auto;
+
+		h3.title {
+			font-size: 2rem;
+			border-bottom: solid thin #303030;
+			color: #303030;
+			margin-bottom: 1rem;
+		}
+		
+		.recent-objects__wrapper {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: flex-start;
+			align-items: top;
+
+			.recently-added-object {
+				width: calc(25% - 2rem);
+				margin: 1rem;
+				background-image: url('img/header-texture.jpg');
+				background-repeat: repeat;
+				border: solid thin #303030;
+				transition: all .3s ease-in-out;
+
+				&:hover {
+
+				}
+
+				.object-thumb {
+					width: 100%;
+					overflow: hidden;
+					img {
+						width: 100%;
+						max-width: 100%;
+						background: #fff;
+						transition: all .3s ease-in-out;
+
+						&:hover {
+							transform: scale(1.05);
+						}
+					}
+				}
+
+				.object-information {
+					padding: 2rem;
+					h4 {
+						color:$seafoam;
+						font-size: 1.3rem;
+						border-top: solid thin #303030;
+						margin-bottom: 1rem;
+						border-bottom: solid thin $seafoam;
+					}
+					span {
+						color: $orange;
+						strong {
+							color: $adminBlue;
+						}
+					}
+				}
+			}
+		}
+	}
+}
