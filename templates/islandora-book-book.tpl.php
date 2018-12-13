@@ -5,8 +5,14 @@
  */
 
 ?>
-<div class="islandora-object-title">
+<!--<div class="islandora-object-title">
     <h2><?php print $object->label; ?></h2>
+</div>-->
+
+<div class="social-sharing-buttons">
+  <div class="social-title">Share This Object:</div>
+  <?php print $variables['facebook_button']; ?>
+  <?php print $variables['twitter_button']; ?>
 </div>
 
 <?php if(isset($viewer)): ?>

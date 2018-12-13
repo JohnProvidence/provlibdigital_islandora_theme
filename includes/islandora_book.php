@@ -68,6 +68,21 @@ function pld_preprocess_islandora_book_book(array &$variables) {
   $variables['parent_collections'] = islandora_get_parents_from_rels_ext($object);
   $variables['metadata'] = islandora_retrieve_metadata_markup($object);
   $variables['description'] = islandora_retrieve_description_markup($object);
+
+   // Social media sharing buttons
+    $path = $GLOBALS['base_url'];
+    $object_url =  $path .'/islandora/object/'.$obj_pid;
+   
+   
+    $facebook_button = '<div id="fb-share" data-url="'.$object_url.'" data-title="'.$object->label.'" data-descrip="'.$variables['description'].'" data-image="'.$object_url. '/datastream/OBJ/view" data-width="520" data-height="350"><i class="fab fa-facebook-f"></i></div>';
+
+    $variables['facebook_button'] = $facebook_button;
+
+    $twitter_share_url = 'https://twitter.com/intent/tweet?text='.$object->label.' '.$object_url;
+
+    $twitter_button = '<div id="twitter-share"><a href="'.$twitter_share_url.'" target="_blank"><i class="fab fa-twitter"></i></a></div>';
+    $variables['twitter_button'] = $twitter_button;
+
 }
 
 ?>
