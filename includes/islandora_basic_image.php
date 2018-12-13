@@ -155,7 +155,7 @@ function pld_preprocess_islandora_basic_image(array &$variables) {
 
     $variables['facebook_button'] = $facebook_button;
 
-    $twitter_share_url = 'https://twitter.com/intent/tweet?text='.$object->label.' View this image at: '.$object_url;
+    $twitter_share_url = 'https://twitter.com/intent/tweet?text='.$object->label.' '.$object_url;
 
     $twitter_button = '<div id="twitter-share"><a href="'.$twitter_share_url.'" target="_blank"><i class="fab fa-twitter"></i></a></div>';
     $variables['twitter_button'] = $twitter_button;
