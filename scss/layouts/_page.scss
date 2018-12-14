@@ -47,6 +47,10 @@ h1.title {
 	justify-content: flex-start;
 	align-items: top;
 	/*background: url(img/stripes-light.png) repeat;*/
+
+	@include mobile() {
+		display: block;
+	}
 }
 
 body.no-sidebars {
@@ -73,6 +77,15 @@ body.one-sidebar {
 		margin-top: -5px;
 		padding: 3rem 2rem 3rem 3rem;
 		background: #fff;
+
+		@include tablet-portrait() {
+			width: calc(85% - 1rem);
+			padding: .5rem;
+		}
+
+		@include mobile() {
+			width: calc(100% - 1rem) !important;
+		}
 	}
 
 	#sidebar-first {
@@ -81,9 +94,16 @@ body.one-sidebar {
 		margin-left: 0rem !important;
 		margin-top: 2rem !important;
 		padding-left: 1rem !important;
-		position: -webkit-sticky;
-		position: sticky;
 		top: 0;
+
+		@include tablet-portrait() {
+			width: calc(15% - 1rem);
+		}
+
+		@include mobile() {
+			width: calc(100% - 1rem) !important;
+			margin-top: 0 !important;
+		}
 		
 	}
 }

@@ -153,6 +153,10 @@ body.section-islandora {
 			overflow: hidden;
 			border:solid thin $orange;
 
+			@include tablet-landscape() {
+				width: calc(50% - 1rem) !important;
+			}
+
 			.islandora-object-thumb {
 				width: 100%;
 				overflow: hidden;
@@ -210,7 +214,7 @@ body.page-islandora-object-islandora-root {
 			width:calc(48% - .5rem) !important;
 			margin:.5rem !important;
 
-			@include mobile() {
+			@include tablet-portrait() {
 				width: calc(100% - 1rem) !important;
 				margin: .5rem !important;
 			}
@@ -267,10 +271,14 @@ body.page-islandora-object-islandora-root {
 		}
 
 		.islandora-objects-grid-item {
-			width: calc(48% - .5rem) !important;
+			width: calc(50% - 1rem) !important;
 			margin: .5rem !important;
 			overflow: hidden;
 			border:solid thin $orange;
+
+			@include tablet-portrait() {
+				width: calc(100% - 1rem) !important;
+			}
 
 			.islandora-object-thumb {
 				width: 100%;

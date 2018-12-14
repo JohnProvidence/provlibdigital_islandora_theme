@@ -28,19 +28,33 @@
 
 	<div class="menu-toggle">
 		<i class="fas fa-bars" aria-hidden="true" title="Menu"></i>
+		<div class="icon-title">Menu</div>
 	</div>
 
 	<div id="search-icon">
 		<i class="fas fa-search" aria-hidden="true" title="Search Collection"></i>
+		<div class="icon-title">Search</div>
 	</div>
 
 	<div class="user-login-toggle">
 		<?php if(!user_is_logged_in()): ?>
 			<a href="/user/login"><i class="fas fa-sign-in-alt" aria-hidden="true" title="Account Login"></i></a>
+			<div class="icon-title">Login</div>
 		<?php else: ?>
 			<a href="/user"><i class="far fa-user-circle" aria-hidden="true" title="Account"></i></a>
+			<div class="icon-title">Your Account</div>
 		<?php endif; ?>
 	</div>
+
+	<?php if(user_is_logged_in()): ?>
+		<div class="user-login-toggle">
+			<a href="/user/logout">
+				<i class="fas fa-sign-out-alt" aria-hidden="true" title="Logout"></i>
+			</a>
+			<div class="icon-title">
+				Logout
+			</div>
+	<?php endif; ?>
 	
 	<?php //include('secondaryNav.php'); ?>
 </header>

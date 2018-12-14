@@ -1,11 +1,8 @@
 .pld_recently_added_objects_wrapper {
-	margin-top: 4rem;
+	margin-top: 0rem;
 	background-color: #ccc;
 	padding-top: 4rem;
 	padding-bottom: 4rem;
-
-	
-
 
 	.pld-recently-added-objects-block {
 		max-width: 1400px;
@@ -16,6 +13,11 @@
 			border-bottom: solid thin #303030;
 			color: #303030;
 			margin-bottom: 1rem;
+
+			@include tablet-landscape() {
+				width: calc(100% - 2rem);
+				margin: 1rem auto;
+			}
 		}
 		
 		.recent-objects__wrapper {
@@ -32,8 +34,8 @@
 				border: solid thin #303030;
 				transition: all .3s ease-in-out;
 
-				&:hover {
-
+				@include tablet-landscape() {
+					width: calc(50% - 2rem);
 				}
 
 				.object-thumb {

@@ -86,30 +86,6 @@ jQuery(document).ready(function($) {
 		br.init();
 	}
 	
-	// sticky sidebar
-	var $sidebar = $('.pld-facets-block');
-	
-	
-		var $window = $(window);
-		var offset = $sidebar.offset();
-		var topPadding = 50;
-
-	if(typeof offset != 'undefined') {
-		$window.scroll(function() {
-			if($window.scrollTop() > offset.top) {
-				$sidebar.stop().animate({
-					marginTop: $window.scrollTop() - offset.top + topPadding
-				});
-			} else {
-				$sidebar.stop().animate({
-					marginTop: 0
-				});
-			}
-		});
-	}
-		
-	
-
 		$('#fb-share').on('click', function() {
 			var title = $(this).attr('data-title');
 			var url = $(this).attr('data-url');

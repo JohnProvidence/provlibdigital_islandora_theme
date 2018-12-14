@@ -19,13 +19,14 @@ header.site-header__wrapper {
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
-	padding: 1rem 1rem;
+	padding: 2rem 1rem;
 	webkit-box-shadow: 3px 10px 20px -4px rgba(0,0,0,0.75);
 	-moz-box-shadow: 3px 10px 20px -4px rgba(0,0,0,0.75);
 	box-shadow: 3px 10px 20px -4px rgba(0,0,0,0.75);
 
 	@include mobile() {
 		justify-content: space-between;
+		padding-top: 3rem;
 	}
 
 	.logo__wrapper {
@@ -87,28 +88,37 @@ header.site-header__wrapper {
 
 	.menu-toggle {
 		margin-left: auto;
-		color: $seafoam;
-		padding: .5rem  .5rem 0;
-		border: solid thin $seafoam;
-		border-radius: 4px;
-		font-size: 2rem;
-		transition: all .3s ease-in-out;
-		cursor: pointer;
-		&:hover {
-			color: darken($seafoam, 25%);
-			border-color: darken($seafoam, 25%) ;
-		}
 
+		.svg-inline--fa {
+			color: $seafoam;
+			padding: 0rem  .5rem 0;
+			border: solid thin $seafoam;
+			border-radius: 4px;
+			font-size: 3rem;
+			transition: all .3s ease-in-out;
+			cursor: pointer;
+			&:hover {
+				color: darken($seafoam, 25%);
+				border-color: darken($seafoam, 25%) ;
+			}
+
+		}
+		
 		@include mobile() {
 			margin-left: .5rem;
 			margin-top: 1rem;
+		}
+
+		.icon-title {
+			color: $seafoam;
+			font-size: .9rem;
+			margin-top: .15rem;
+			text-align: center;
 		}
 	}
 
 	#search-icon, .user-login-toggle {
 			.svg-inline--fa {
-				margin-right: 1rem;
-				margin-left: 1rem;
 				display: inline-block;
 				color: $seafoam;
 				font-size: 2.5rem;
@@ -129,4 +139,28 @@ header.site-header__wrapper {
 .user-login-toggle {
 	margin-left: -1rem;
 	font-size: 2.75rem;
+}
+
+#search-icon {
+	margin-left: 1.25rem;
+.icon-title {
+		color: $seafoam;
+		font-size: .9rem;
+		margin-top: .7rem;
+		text-align: center;
+	}
+}
+
+.user-login-toggle {
+	margin-left: 1.25rem;
+	text-align: center;
+	.svg-inline--fa {
+
+	}
+	.icon-title {
+		color: $seafoam;
+		font-size: .9rem;
+		margin-top: 0rem;
+		text-align: center;
+	}
 }

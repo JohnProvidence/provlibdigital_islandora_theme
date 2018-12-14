@@ -5,3 +5,28 @@ aside#sidebar-first {
 input#edit-submit {
 	@include btn;
 }
+
+#sidebar-first {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: top;
+	align-items: flex-start;
+
+	@include mobile() {
+		display: block !important;
+		padding: 0 !important;
+	}
+}
+
+.block.pld-facets-block {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 4rem;
+	width: 100% !important;
+
+	@include mobile() {
+		position: relative !important;
+		top: 0;
+		padding: 0 !important;
+	}
+}
