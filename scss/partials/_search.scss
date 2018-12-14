@@ -165,12 +165,11 @@
 			background: transparent;
 			border-radius: 4px;
 			margin-right: 1rem;
-		}
-		&:hover {
-			background: $orange;
-			a {
-				color: #fff;
+			display: inline-block;
+			overflow: hidden;
+			&:hover {
 				background: $orange;
+				color: #fff;
 			}
 		}
 	}
