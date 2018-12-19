@@ -19,5 +19,6 @@ require('includes/islandora_basic_image.php');
 require('includes/islandora_compound.php');
 require('includes/islandora_bookmark.php');
 require('includes/islandora_book.php');
+require('includes/islandora_breadcrumb.php');
 
 ?>
