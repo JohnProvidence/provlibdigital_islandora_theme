@@ -157,6 +157,10 @@ body.section-islandora {
 				width: calc(50% - 1rem) !important;
 			}
 
+			@include mobile() {
+				width: calc(100% - 1rem) !important;
+			}
+
 			.islandora-object-thumb {
 				width: 100%;
 				overflow: hidden;

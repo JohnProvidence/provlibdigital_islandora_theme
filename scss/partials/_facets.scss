@@ -68,6 +68,10 @@
 				padding: .5rem 0;
 				border-bottom: solid thin $seafoam;
 
+				a {
+					text-transform: capitalize;
+				}
+
 				span.plusminus {
 					a {
 						font-weight: 700;

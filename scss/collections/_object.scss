@@ -79,6 +79,10 @@
 	h3 {
 		a {
 			color: $seafoam;
+
+			@include mobile() {
+				display: block;
+			}
 		}
 	}
 
@@ -124,11 +128,20 @@
 	margin:1rem 0;
 	padding-top:1rem;
 
+	@include mobile() {
+		margin-top: 0;
+	}
+
 	.btn {
 		display: inline-block;
 		@include btn;
 		margin-top: 1rem;
 		margin-right: 1rem;
+
+		@include mobile() {
+			display: block;
+			width: 100%;
+		}
 	}
 }
 

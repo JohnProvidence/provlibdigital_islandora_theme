@@ -6,9 +6,18 @@
 		justify-content: flex-start;
 
 		.solr-grid-field {
-			width: calc(33.33% - 2rem);
-			margin: 1rem;
+			width: calc(33.33% - 1rem);
+			margin: .5rem;
 			border: solid thin $orange;
+
+			@include tablet-portrait() {
+				width: calc(50% - 1rem);
+			}
+
+			@include mobile() {
+				width: calc(100% - 1rem);
+			}
+
 			.solr-grid-thumb {
 				overflow: hidden;
 				a {

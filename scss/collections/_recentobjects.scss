@@ -38,6 +38,10 @@
 					width: calc(50% - 2rem);
 				}
 
+				@include mobile() {
+					width: calc(100% - 2rem);
+				}
+
 				.object-thumb {
 					width: 100%;
 					overflow: hidden;
