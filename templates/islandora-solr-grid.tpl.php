@@ -17,7 +17,7 @@
   <div class="islandora-solr-search-results">
     <div class="islandora-solr-grid clearfix">
     <?php foreach($results as $result): ?>
-      <?php //var_dump($result['image_url']); 
+      <?php  
       if(isset($result['image_url'])):
       ?>
 
@@ -36,6 +36,7 @@
           <dd class="solr-grid-caption">
             <?php
               $object_label = isset($result['object_label']) ? $result['object_label'] : '';
+              $object_label = htmlspecialchars_decode($object_label);
               print l($object_label, $result['object_url'], array(
                 'query' => $result['object_url_params'],
                 'fragment' => isset($result['object_url_fragment']) ? $result['object_url_fragment'] : '',

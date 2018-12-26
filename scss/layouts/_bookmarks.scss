@@ -1,7 +1,11 @@
 .block-islandora-bookmark {
 	margin-bottom: .25rem;
+
+	h1 {
+		display: none;
+	}
 	
-	h3.title {
+	h3.title, h3 {
 		display: none;
 	}
 
@@ -198,5 +202,19 @@
 		@include btn;
 		background: $seafoam;
 	}
+
+
+	h3 {
+		display: none;
+	}
+	.form-item-bookmarks-fieldset-export-options {
+		display: none;
+	}
+	#edit-bookmarks-fieldset-format-opts-export-selected, #edit-bookmarks-fieldset-format-opts-export-all {
+		display: none;
+	}
+
 }
+
+
 

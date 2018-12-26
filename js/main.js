@@ -25,7 +25,7 @@ jQuery(document).ready(function($) {
 	navClose.on('click', function() {
 		nav.removeClass('visible');
 		nav.addClass('hidden');
-	})
+	});
 
 	$('.view-all-collections').on('click', function() {
 		$('html,body').animate({
@@ -69,6 +69,7 @@ jQuery(document).ready(function($) {
 			$temp.val(listURL).select();
 			document.execCommand('copy');
 			$temp.remove();
+			alert('The bookmark URL has been copied.');
 		});
 	} 
 	copyBookmarkURL();
