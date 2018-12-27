@@ -61,8 +61,8 @@ function pld_preprocess_islandora_solr_grid(&$variables) {
 		$pid = $variables['results'][$i]['PID'];
 		if(isset($pid)):
 			$object = islandora_object_load($pid);
-
-			if($pid != NULL):
+			
+			if($object != NULL):
 				$obj_models = $object->relationships->get('info:fedora/fedora-system:def/model#', 'hasModel');
 				$obj_model = $obj_models[0]['object']['value'];
 			
