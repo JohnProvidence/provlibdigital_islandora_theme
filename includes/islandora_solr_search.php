@@ -47,7 +47,7 @@ function pld_islandora_solr_facet_wrapper($variables) {
 }
 
 function pld_preprocess_islandora_solr_grid(&$variables) {
-	 module_load_include('inc', 'islandora_paged_content', 'includes/utilities');
+	module_load_include('inc', 'islandora_paged_content', 'includes/utilities');
 	$num_results = count($variables['results']);
 	$data = array();
 	$no_thumb_path = drupal_get_path('theme', 'pld');
@@ -111,19 +111,8 @@ function pld_preprocess_islandora_solr_grid(&$variables) {
 				$image = $copyright_img;
 			endif;	
 
-
-			$data[] = array(
-				'pid' => $variables['results'][$i]['PID'],
-				'label' => $object->label,
-				'thumbnail_image' => $image,
-				'object_url' => '/islandora/object/'.$pid,
-				'query' => $variables['results'][$i]['object_url_params'],
-				'fragment' => isset($variables['results'][$i]['object_url_fragment']) ? $variables['results'][$i]['object_url_fragment'] : '',
-				'thumbnail_query' => $variables['results'][$i]['thumbnail_url_params'],
-			);
-
 		$variables['results'][$i]['image_url'] = $image;
-	
+		
 	endif; 
 	
 	}

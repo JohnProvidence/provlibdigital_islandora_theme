@@ -52,6 +52,23 @@
 						display: block;
 						margin-bottom: 1rem;
 				}
+
+				.additional_data {
+					font-size: .9rem;
+					color: #000;
+					font-weight: 500;
+					padding-top: .5rem;
+
+					span.description {
+						display: block;
+						padding-top: .5rem;
+					}
+
+					span.pid, span.identifier {
+						margin-right: .5rem;
+						display: inline-block;
+					}
+				}
 			}
 		}
 

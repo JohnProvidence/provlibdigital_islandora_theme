@@ -8,7 +8,6 @@
  *
  * @see template_preprocess_islandora_solr_grid()
  */
-
 ?>
 
 <?php if (empty($results)): ?>
@@ -17,6 +16,9 @@
   <div class="islandora-solr-search-results">
     <div class="islandora-solr-grid clearfix">
     <?php foreach($results as $result): ?>
+      <?php $data = $result['solr_doc']; 
+      var_dump($data);
+      ?>
       <?php  
       if(isset($result['image_url'])):
       ?>
@@ -43,6 +45,11 @@
                 'attributes' => array('title' => $result['object_label']),
               ));
             ?>
+            <div class="additional_data">
+              <span class="pid"><strong>PID: </strong> <?php print $data['PID']; ?> </span>
+              <span class="identifier"><strong>Identifier: </strong> <?php print $data['dc.identifier'][1]; ?></span>
+              <span class="description"><strong>Subject | Topics </strong> <?php print $data['dc.subject'][0]; ?></span>
+            </div>
           </dd>
         </dl>
     <?php endif; ?>
