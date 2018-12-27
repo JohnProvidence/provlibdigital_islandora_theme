@@ -55,7 +55,7 @@
               <span class="identifier"><strong>Identifier: </strong> <?php print $data['mods_identifier_local_ss']; ?></span>
             <?php endif; ?>
 
-            <?php if(isset($data['mod_subject_topic_ss'])): ?>
+            <?php if(isset($data['mods_subject_topic_ss'])): ?>
               <span class="description"><strong>Topics </strong> <?php print $data['mods_subject_topic_ss']; ?></span>
             <?php endif; ?>
             </div>
