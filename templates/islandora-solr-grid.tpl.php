@@ -56,7 +56,7 @@
             <?php endif; ?>
 
             <?php if(isset($data['mods_subject_topic_ss'])): ?>
-              <span class="description"><strong>Topics </strong> <?php print $data['mods_subject_topic_ss']; ?></span>
+              <span class="description"><strong>Topics: </strong> <?php print $data['mods_subject_topic_ss']; ?></span>
             <?php endif; ?>
             </div>
           </dd>
