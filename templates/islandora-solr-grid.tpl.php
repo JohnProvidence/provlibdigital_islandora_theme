@@ -17,7 +17,7 @@
     <div class="islandora-solr-grid clearfix">
     <?php foreach($results as $result): ?>
       <?php $data = $result['solr_doc']; 
-      //var_dump($result); // uncomment to see data array from solr
+      var_dump($result); // uncomment to see data array from solr
       ?>
       <?php  
       if(isset($result['image_url'])):
