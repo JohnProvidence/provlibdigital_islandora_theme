@@ -86,6 +86,7 @@ function pld_preprocess_islandora_solr_grid(&$variables) {
 							$image ='/islandora/object/'.$pid.'/datastream/MEDIUM_SIZE/view';
 						else:
 							$image = $no_thumb;
+						endif;
 					endif;
 
 					if($obj_model == 'islandora:collectionCModel' && $copyright == FALSE):
