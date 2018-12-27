@@ -63,11 +63,8 @@ function pld_preprocess_islandora_solr_grid(&$variables) {
 			$object = islandora_object_load($pid);
 			
 			if($object != NULL):
-				$obj_models = $object->relationships->get('info:fedora/fedora-system:def/model#', 'hasModel');
-				if($obj_models != FALSE):
-				
+					$obj_models = $object->relationships->get('info:fedora/fedora-system:def/model#', 'hasModel');
 					$obj_model = $obj_models[0]['object']['value'];
-					var_dump($obj_model);
 					$copyright = $object->getDatastream('COPYRIGHT');
 
 					if($obj_model == 'islandora:compoundCModel'):
@@ -84,7 +81,11 @@ function pld_preprocess_islandora_solr_grid(&$variables) {
 					endif; // end islandora:compoundCModel
 
 					if($obj_model == 'islandora:sp_basic_image' && $copyright == FALSE):
-						$image ='/islandora/object/'.$pid.'/datastream/MEDIUM_SIZE/view';
+						$med_size = $object->getDatastream('MEDIUM_SIZE');
+						if($med_size != FALSE):
+							$image ='/islandora/object/'.$pid.'/datastream/MEDIUM_SIZE/view';
+						else:
+							$image = $no_thumb;
 					endif;
 
 					if($obj_model == 'islandora:collectionCModel' && $copyright == FALSE):
@@ -115,8 +116,6 @@ function pld_preprocess_islandora_solr_grid(&$variables) {
 
 					$variables['results'][$i]['image_url'] = $image;
 
-			endif; // end check of object models
-		
 		endif; // end null check for object
 		
 	endif; // end isset for pid
