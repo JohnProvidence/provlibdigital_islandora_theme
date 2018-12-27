@@ -59,11 +59,13 @@ function pld_preprocess_islandora_solr_grid(&$variables) {
 
 		$image = NULL;
 		$pid = $variables['results'][$i]['PID'];
-		if(isset($pid) && $pid != NULL):
+		if(isset($pid)):
 			$object = islandora_object_load($pid);
+
+			if($pid != NULL):
+				$obj_models = $object->relationships->get('info:fedora/fedora-system:def/model#', 'hasModel');
+				$obj_model = $obj_models[0]['object']['value'];
 			
-			$obj_models = $object->relationships->get('info:fedora/fedora-system:def/model#', 'hasModel');
-			$obj_model = $obj_models[0]['object']['value'];
 
 			$copyright = $object->getDatastream('COPYRIGHT');
 
@@ -111,7 +113,9 @@ function pld_preprocess_islandora_solr_grid(&$variables) {
 				$image = $copyright_img;
 			endif;	
 
-		$variables['results'][$i]['image_url'] = $image;
+			$variables['results'][$i]['image_url'] = $image;
+
+		endif;
 		
 	endif; 
 	
