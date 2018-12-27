@@ -64,10 +64,10 @@ function pld_preprocess_islandora_solr_grid(&$variables) {
 			
 			if($object != NULL):
 				$obj_models = $object->relationships->get('info:fedora/fedora-system:def/model#', 'hasModel');
-				var_dump($obj_models);
 				if($obj_models != FALSE):
 				
 					$obj_model = $obj_models[0]['object']['value'];
+					var_dump($obj_model);
 					$copyright = $object->getDatastream('COPYRIGHT');
 
 					if($obj_model == 'islandora:compoundCModel'):
