@@ -134,11 +134,13 @@ function pld_preprocess_islandora_basic_image(array &$variables) {
        $relationships = $object->relationships->get('info:fedora/fedora-system:def/relations-external#', 'isConstituentOf');
        $parent = $relationships[0]['object']['value'];
        $parent_object = islandora_object_load($parent);
-       $collection = $parent_object->getParents();
-       $collection_object = islandora_object_load($collection[0]);
-       $variables['parent_collection'] = $collection_object->label;
-       $variables['parent_url'] = '/islandora/object/'.$collection_object->id;
-       $finding_aid = $collection_object->getDatastream('FINDING_AID');
+       if(isset($parent_object)): 
+         $collection = $parent_object->getParents();
+         $collection_object = islandora_object_load($collection[0]);
+         $variables['parent_collection'] = $collection_object->label;
+         $variables['parent_url'] = '/islandora/object/'.$collection_object->id;
+         $finding_aid = $collection_object->getDatastream('FINDING_AID');
+      endif;
 
        if($finding_aid != FALSE) {
          $finding_aid_button = '<div class="btn finding_aid_btn"><a href="/islandora/object/'.$collection_object->id.'/datastream/FINDING_AID/view">Download Collection Finding Aid <i class="far fa-file-alt"></i></a></div>';
