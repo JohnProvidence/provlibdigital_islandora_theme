@@ -46,9 +46,18 @@
               ));
             ?>
             <div class="additional_data">
-              <span class="pid"><strong>PID: </strong> <?php print $data['PID']; ?> </span>
-              <span class="identifier"><strong>Identifier: </strong> <?php print $data['dc.identifier'][1]; ?></span>
-              <span class="description"><strong>Subject | Topics </strong> <?php print $data['dc.subject'][0]; ?></span>
+              
+              <?php if(isset($result['PID'])): ?>
+              <span class="pid"><strong>PID: </strong> <?php print $result['PID']; ?> </span>
+            <?php endif; ?>
+             
+             <?php if(isset($data['mods_identifier_local_ss'])): ?>
+              <span class="identifier"><strong>Identifier: </strong> <?php print $data['mods_identifier_local_ss']; ?></span>
+            <?php endif; ?>
+
+            <?php if(isset($data['mod_subject_topic_ss'])): ?>
+              <span class="description"><strong>Topics </strong> <?php print $data['mods_subject_topic_ss']; ?></span>
+            <?php endif; ?>
             </div>
           </dd>
         </dl>
