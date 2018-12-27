@@ -134,7 +134,7 @@ function pld_preprocess_islandora_basic_image(array &$variables) {
        $relationships = $object->relationships->get('info:fedora/fedora-system:def/relations-external#', 'isConstituentOf');
        $parent = $relationships[0]['object']['value'];
        $parent_object = islandora_object_load($parent);
-       if(isset($parent_object)): 
+       if($parent_object != FALSE): 
          $collection = $parent_object->getParents();
          $collection_object = islandora_object_load($collection[0]);
          $variables['parent_collection'] = $collection_object->label;
