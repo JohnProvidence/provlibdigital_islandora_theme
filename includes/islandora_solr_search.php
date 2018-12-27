@@ -64,61 +64,63 @@ function pld_preprocess_islandora_solr_grid(&$variables) {
 			
 			if($object != NULL):
 				$obj_models = $object->relationships->get('info:fedora/fedora-system:def/model#', 'hasModel');
-				var_dump($obj_models); 
-				$obj_model = $obj_models[0]['object']['value'];
-			
-
-			$copyright = $object->getDatastream('COPYRIGHT');
-
-			if($obj_model == 'islandora:compoundCModel'):
-				$parts = islandora_compound_object_get_parts($pid);
-				$obj_count = count($parts);
-				
-				if($obj_count > 0):
-					$first_child = $parts[0];
-					
-					$image ='/islandora/object/'.$first_child.'/datastream/MEDIUM_SIZE/view';
+				if($obj_models == FALSE):
+					continue;
 				else:
-					$image = $no_thumb;
-				endif;
-			endif; // end islandora:compoundCModel
 
+					$obj_model = $obj_models[0]['object']['value'];
+					$copyright = $object->getDatastream('COPYRIGHT');
 
-			if($obj_model == 'islandora:sp_basic_image' && $copyright == FALSE):
-				$image ='/islandora/object/'.$pid.'/datastream/MEDIUM_SIZE/view';
-			endif;
+					if($obj_model == 'islandora:compoundCModel'):
+						$parts = islandora_compound_object_get_parts($pid);
+						$obj_count = count($parts);
+						
+						if($obj_count > 0):
+							$first_child = $parts[0];
+							
+							$image ='/islandora/object/'.$first_child.'/datastream/MEDIUM_SIZE/view';
+						else:
+							$image = $no_thumb;
+						endif;
+					endif; // end islandora:compoundCModel
 
-			if($obj_model == 'islandora:collectionCModel' && $copyright == FALSE):
-				$image = '/islandora/object/'.$pid.'/datastream/TN/view';
-			endif;
+					if($obj_model == 'islandora:sp_basic_image' && $copyright == FALSE):
+						$image ='/islandora/object/'.$pid.'/datastream/MEDIUM_SIZE/view';
+					endif;
 
-			if($obj_model == 'islandora:pageCModel' && $copyright == FALSE):
-				$image = '/islandora/object/'.$pid.'/datastream/JPG/view';
-			endif;
+					if($obj_model == 'islandora:collectionCModel' && $copyright == FALSE):
+						$image = '/islandora/object/'.$pid.'/datastream/TN/view';
+					endif;
 
-			if($obj_model == 'islandora:bookCModel'):
-				$pages = islandora_paged_content_get_pages($object);
-				reset($pages);
-				$first_key = key($pages);
-				$page_one = islandora_object_load($first_key);
-				$jpg = $page_one->getDatastream('JPG');
+					if($obj_model == 'islandora:pageCModel' && $copyright == FALSE):
+						$image = '/islandora/object/'.$pid.'/datastream/JPG/view';
+					endif;
 
-				if(isset($jpg)):
-					$image = '/islandora/object/'.$page_one.'/datastream/JPG/view';
-				else:
-					$image = $no_thumb;
-				endif;
-			endif;
+					if($obj_model == 'islandora:bookCModel'):
+						$pages = islandora_paged_content_get_pages($object);
+						reset($pages);
+						$first_key = key($pages);
+						$page_one = islandora_object_load($first_key);
+						$jpg = $page_one->getDatastream('JPG');
 
-			if($copyright != FALSE):
-				$image = $copyright_img;
-			endif;	
+						if(isset($jpg)):
+							$image = '/islandora/object/'.$page_one.'/datastream/JPG/view';
+						else:
+							$image = $no_thumb;
+						endif;
+					endif;
 
-			$variables['results'][$i]['image_url'] = $image;
+					if($copyright != FALSE):
+						$image = $copyright_img;
+					endif;	
 
-		endif;
+					$variables['results'][$i]['image_url'] = $image;
+
+			endif; // end check of object models
 		
-	endif; 
+		endif; // end null check for object
+		
+	endif; // end isset for pid
 	
 	}
 }
