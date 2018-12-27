@@ -53,11 +53,17 @@
 						margin-bottom: 1rem;
 				}
 
+				a {
+					padding: 1rem;
+				}
+
 				.additional_data {
 					font-size: .9rem;
 					color: #000;
 					font-weight: 500;
 					padding-top: .5rem;
+					padding-left: 1rem;
+					padding-right: 1rem;
 
 					span.description {
 						display: block;
