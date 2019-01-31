@@ -1,10 +1,10 @@
 jQuery(document).ready(function($) {
-	// Code below can use jQuery $ 
+	// Code below can use jQuery $
 	// Search modal toggle
 	var searchIcon = $('#search-icon');
 	var searchForm = $('.search-modal');
 	var searchClose = $('.search-modal__close');
-	
+
 	searchIcon.on('click', function() {
 		searchForm.addClass('visible');
 	});
@@ -49,6 +49,13 @@ jQuery(document).ready(function($) {
 		$(this).children('span.arrow-up').toggleClass('rotated');
 	});
 
+  var collectionDescriptionToggle = $('.collection_description .toggle-description span');
+
+  collectionDescriptionToggle.on('click', function() {
+    $('.display-description').toggleClass('hidden').toggleClass('visible');
+    $(this).children('span.arrow-up').toggleClass('rotated');
+  });
+
 	var compoundThumbToggle = $('.compound-thumbs-display-toggle span');
 
 	compoundThumbToggle.on('click', function() {
@@ -71,7 +78,7 @@ jQuery(document).ready(function($) {
 			$temp.remove();
 			alert('The bookmark URL has been copied.');
 		});
-	} 
+	}
 	copyBookmarkURL();
 
 	// IA Bookreader overrides
@@ -81,12 +88,12 @@ jQuery(document).ready(function($) {
 			flipSpeed: 'slow',
 			showLogo: false,
 	};
-	
+
 	if(typeof Bookreader == 'function') {
 		var br = new Bookreader(bookreader_options);
 		br.init();
 	}
-	
+
 		$('#fb-share').on('click', function() {
 			var title = $(this).attr('data-title');
 			var url = $(this).attr('data-url');
@@ -97,10 +104,10 @@ jQuery(document).ready(function($) {
 			var winHeight = $(this).attr('data-height');
 			var winTop = (screen.height / 2) - (winHeight / 2);
         	var winLeft = (screen.width / 2) - (winWidth / 2);
-    
+
         	window.open('http://www.facebook.com/sharer.php?u=' + url + '', 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width='+winWidth+',height='+winHeight);
-	
+
 		});
-	
-	
+
+
 });

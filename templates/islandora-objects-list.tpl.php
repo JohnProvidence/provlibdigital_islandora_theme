@@ -4,6 +4,7 @@
  * @file
  * Render a bunch of objects in a list or grid view.
  */
+
 ?>
 <div class="islandora-objects-list islandora-collections-wrapper">
   <?php $row_field = 0; ?>

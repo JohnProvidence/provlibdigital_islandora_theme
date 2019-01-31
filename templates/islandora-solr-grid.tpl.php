@@ -16,10 +16,10 @@
   <div class="islandora-solr-search-results">
     <div class="islandora-solr-grid clearfix">
     <?php foreach($results as $result): ?>
-      <?php $data = $result['solr_doc']; 
+      <?php $data = $result['solr_doc'];
       //var_dump($result); // uncomment to see data array from solr
       ?>
-      <?php  
+      <?php
       if(isset($result['image_url'])):
       ?>
 
@@ -46,11 +46,11 @@
               ));
             ?>
             <div class="additional_data">
-              
+
               <?php if(isset($result['PID'])): ?>
-              <span class="pid"><strong>PID: </strong> <?php print $result['PID']; ?> </span>
+              <!--<span class="pid"><strong>PID: </strong> <?php print $result['PID']; ?> </span>-->
             <?php endif; ?>
-             
+
              <?php if(isset($data['mods_identifier_local_ss'])): ?>
               <span class="identifier"><strong>Identifier: </strong> <?php print $data['mods_identifier_local_ss']; ?></span>
             <?php endif; ?>

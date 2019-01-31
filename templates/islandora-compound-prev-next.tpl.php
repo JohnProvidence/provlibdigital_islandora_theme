@@ -45,7 +45,7 @@
    <div class="islandora-compound-thumbs">
    <?php foreach ($themed_siblings as $sibling): ?>
      <div class="islandora-compound-thumb">
-     <div class='islandora-compound-caption'><?php print $sibling['label'] . ' | ' . $sibling['pid']; ?></div>
+     <div class='islandora-compound-caption'><?php print $sibling['label'] //. ' | ' . $sibling['pid']; ?></div>
      <?php print l(
        theme_image(
          array(

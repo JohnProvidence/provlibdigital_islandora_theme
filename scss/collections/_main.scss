@@ -41,17 +41,17 @@ li.islandora-print {
 /** Interior Collections page **/
 body.section-islandora {
 
-	
+
 .block-islandora-compound-object {
 	padding: .5rem 0;
-	
+
 	.islandora-compound-title {
 		display: block;
 			a.manage-parent-btn {
 				display:block;
 				text-transform: capitalize;
 			}
-			
+
 		}
 
 		.islandora-compound-thumbs {
@@ -114,7 +114,7 @@ body.section-islandora {
 					text-overflow: ellipsis;
 					overflow: hidden;
 					white-space: nowrap;
-					
+
 					&:before {
 						content: "";
 						background: url('img/card-lines-orange.png') repeat-x #fff;
@@ -196,13 +196,13 @@ body.section-islandora {
 			}
 		}
 	}
-	
+
 }
 
 /** Main Page collection display **/
 body.page-islandora-object-islandora-root {
 
-	/** Basic Collection **/	
+	/** Basic Collection **/
 	.islandora-basic-collection-grid {
 		display: flex;
 		flex-flow: row wrap;
@@ -227,7 +227,7 @@ body.page-islandora-object-islandora-root {
 				overflow: hidden;
 				margin-bottom: -5px;
 				display: block;
-	
+
 
 				img {
 					transition: all .3s ease-in-out;
@@ -243,7 +243,7 @@ body.page-islandora-object-islandora-root {
 				z-index: 20;
 				text-align: center;
 				background:#fff;
-				
+
 
 				&:before {
 					content: "";
@@ -319,4 +319,50 @@ body.page-islandora-object-islandora-root {
 			}
 		}
 	}
+}
+
+.collection_description {
+  margin-bottom: 2rem;
+  .toggle-description {
+    border-bottom: solid thin $adminBlue;
+    margin-bottom: 1rem;
+    &:after {
+      content:"";
+      display: block;
+      clear: both;
+    }
+    span {
+      width: auto;
+      padding: .5rem 1rem;
+      background: $adminBlue;
+      display: inline-block;
+      border-radius: 4px 4px 0px 0px;
+      -moz-border-radius: 4px 4px 0px 0px;
+      -webkit-border-radius: 4px 4px 0px 0px;
+      transition: all .3s ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        background: darken($adminBlue, 10%);
+      }
+    }
+    span.arrow-up {
+      padding:0;
+      margin-left: .5rem;
+      background:transparent;
+    }
+    span.arrow-up.rotated {
+      transform:rotate(180deg);
+    }
+  }
+  .display-description {
+    padding: 0 1rem 1rem 1rem;
+    border-bottom: solid thin $adminBlue;
+  }
+  .display-description.visible {
+    display: block;
+  }
+  .display-description.hidden {
+    display: none;
+  }
 }

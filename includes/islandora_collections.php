@@ -86,7 +86,7 @@ function pld_preprocess_islandora_basic_collection(&$variables) {
     $obj_models = $fc_object->relationships->get('info:fedora/fedora-system:def/model#', 'hasModel');
     $obj_model = $obj_models[0]['object']['value'];
     $medium_size = '';
-    
+
     $no_thumb_path = drupal_get_path('theme', 'pld');
     $no_thumb = theme('image', array('path' => "$no_thumb_path/img/no_image_available.png", 'alt' => $title));
 
@@ -117,19 +117,36 @@ function pld_preprocess_islandora_basic_collection(&$variables) {
     $associated_objects_array[$pid]['thumbnail'] = $thumbnail_img;
     $associated_objects_array[$pid]['medium_size'] = $medium_size;
     $associated_objects_array[$pid]['title_link'] = l($title, $object_url, array('html' => TRUE, 'attributes' => array('title' => $title)));
-   
-  
+
+
     if($obj_model == 'islandora:collectionCModel') {
       $associated_objects_array[$pid]['obj_link'] = l($thumbnail_img, $object_url, array('html' => TRUE, 'attributes' => array('title' => $title)));
     } else {
       $associated_objects_array[$pid]['obj_link'] = l($medium_size, $object_url, array('html' => TRUE, 'attributes' => array('title' => $title)));
     }
-   
+
   }
 
   $variables['associated_objects_array'] = $associated_objects_array;
 }
 
+function pld_preprocess_islandora_objects_subset(&$variables) {
 
+  $current_pid = arg(2);
+
+  $parent_object = islandora_object_load($current_pid);
+  $dc = $parent_object->getDatastream('DC');
+  $dc_content = $dc->content;
+  $dc_object = DublinCore::importFromXMLString($dc_content);
+  $dc_object = $dc_object->asArray();
+
+  //var_dump($dc_object);
+  $collection_title = $dc_object['dc:title']['value'];
+  $collection_description = $dc_object['dc:description']['value'];
+  $variables['collection_title'] = $collection_title;
+  $variables['collection_description'] = $collection_description;
+
+  //print $collection_description;
+}
 
 ?>
