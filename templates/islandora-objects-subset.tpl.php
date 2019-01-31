@@ -1,5 +1,7 @@
 <?php
-//var_dump($variables);
+/**
+* Template: Islandora Objects -- display a grid or list of islandora collection objects
+*/
 ?>
 <div class="islandora-objects clearfix">
   <span class="islandora-objects-display-switch">
@@ -28,6 +30,7 @@
     </div>
   </div>
 <?php endif; ?>
+
   <?php print $pager; ?>
   <?php print $content; ?>
   <?php print $pager; ?>
