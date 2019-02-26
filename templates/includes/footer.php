@@ -3,26 +3,26 @@
   		<div class="site-footer__wrapper">
 
   			<div class="site-footer__identity">
-  				
+
   				<div class="site-branding">
 	  				<div class="site-footer__library-name">
 	  					<?php print $library_name; ?>
 	  				</div>
-	  				
+
 	  				<div class="site-footer__collections-name">
 	  					<?php print $dc; ?>
 	  				</div>
   				</div>
-  				
+
   				<div class="site-footer__social-icons">
-  					<?php if(theme_get_setting('pld_social_media_links_spc_twitter')): 
+  					<?php if(theme_get_setting('pld_social_media_links_spc_twitter')):
   						$spc_twitter = theme_get_setting('pld_social_media_links_spc_twitter');
   					?>
   						<a href="<?php print $spc_twitter; ?>" class="icon">
   							<i class="fab fa-twitter" aria-hidden="true"></i>
   					<?php endif; ?>
 
-  					<?php if(theme_get_setting('pld_social_media_links_rc_instagram')): 
+  					<?php if(theme_get_setting('pld_social_media_links_rc_instagram')):
   						$rc_instagram = theme_get_setting('pld_social_media_links_rc_instagram');
   					?>
   						</a>
@@ -33,7 +33,7 @@
   				</div>
   			</div> <!-- end .site-footer__identity -->
 
-  			<div class="site-footer__vitals">	
+  			<div class="site-footer__vitals">
           <div class="footer_col">
   				  <?php print render($page['footer_col_1']); ?>
           </div>

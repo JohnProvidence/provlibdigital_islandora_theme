@@ -24,6 +24,8 @@ regions[footer_col_2]	= Footer Column Two
 regions[footer_col_3]	= Footer Column Three
 regions[page_bottom] = Page bottom
 regions[navigation] = Navigation bar
+regions[welcome_text] = Welcome Text
+regions[funding_credit] = Site Funding
 
 
 features[] = logo

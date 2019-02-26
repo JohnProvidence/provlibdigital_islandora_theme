@@ -13,29 +13,10 @@ function pld_form_system_theme_settings_alter(&$form, &$form_state) {
     return;
   }
 
+  $pld_collections_description_text = '';
+  $funding_credit_text = '';
   // Create the form using Forms API: http://api.drupal.org/api/7
 
-  $form['pld_islandora_settings'] = array(
-    '#type'         => 'fieldset',
-    '#title'        => t('ProvLibDigital Islandora Settings'),
-    '#collapsible'  => FALSE,
-    '#collapsed'    => FALSE,
-  );
-
-  $form['pld_collections_description'] = array(
-    '#type'         => 'fieldset',
-    '#title'        => t('Collections Description'),
-    '#collapsible'  => TRUE,
-    '#collapsed'    => FALSE,
-  );
-
-  $form['pld_collections_description']['pld_collections_description_text'] = array(
-    '#type'         => 'textarea',
-    '#title'        => t('Description Text'),
-    '#description'  => t('Provide text that describes the collections in the repository'),
-    '#default_value'  => theme_get_setting('pld_collections_description_text'),
-  );
- 
   $form['pld_social_media_links'] = array(
    '#type'          => 'fieldset',
    '#title'         => t('Social Media Accounts'),
@@ -78,10 +59,10 @@ function pld_form_system_theme_settings_alter(&$form, &$form_state) {
     '#defaul_value' => theme_get_setting('legal_notices'),
   );
 
-   
+
   // We don't need breadcrumbs to be configured on this site.
   unset($form['breadcrumb']);
-  // 
+  //
 
   // We are editing the $form in place, so we don't need to return anything.
 }

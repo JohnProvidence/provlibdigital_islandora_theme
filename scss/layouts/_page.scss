@@ -7,7 +7,7 @@ h1.title {
 	color: $orange;
 }
 
-.collections-description__wrapper {
+.collections-description__wrapper, .funding-credit {
 	padding: 3rem;
 	background: $adminBlue;
 
@@ -15,7 +15,13 @@ h1.title {
 		padding: .5rem;
 	}
 
-	.collections-description__text {
+  .block {
+    h3.title {
+      display: none;
+    }
+  }
+
+	.collections-description__text, .funding-credit-text {
 		max-width: 1400px;
 		margin: 1rem auto;
 		padding: 2rem;
@@ -25,7 +31,48 @@ h1.title {
 			margin-bottom: 2rem;
 		}
 
+    a {
+      color: $orange;
+    }
+
 	}
+}
+
+.funding-credit {
+  background: #303030;
+  padding-top: 1rem;
+  padding-bottom:1rem;
+  -webkit-box-shadow: inset -1px -11px 5px 0px rgba(0,0,0,0.23);
+  -moz-box-shadow: inset -1px -11px 5px 0px rgba(0,0,0,0.23);
+  box-shadow: inset -1px -11px 5px 0px rgba(0,0,0,0.23);
+
+
+  .funding-credit-text {
+    text-align: center;
+    color: #fff;
+
+    a {
+      color: $orange;
+    }
+  }
+
+  .logos {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      img {
+        background: #fff;
+        padding: .25rem;
+        max-width: 200px;
+        margin-right: 1rem;
+        margin-top: 1rem;
+        border-radius: 4px;
+      }
+    }
+  }
 }
 
 #container, #sidebar-first, #sidebar-second, section#content {
@@ -104,14 +151,14 @@ body.one-sidebar {
 			width: calc(100% - 1rem) !important;
 			margin-top: 0 !important;
 		}
-		
+
 	}
 }
 
 
 body.page-islandora-object-islandora-root {
 	#container {
-		
+
 		section#content {
 			float: none !important;
 			width: 100% !important;
