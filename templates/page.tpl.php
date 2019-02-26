@@ -95,6 +95,7 @@
 
 <?php
 	 endif;
+endif;
 ?>
 
 <?php
@@ -113,7 +114,7 @@
   endif;
 ?>
 
-<?php endif; ?>
+
 
 <?php include('includes/search-modal.php'); ?>
 
