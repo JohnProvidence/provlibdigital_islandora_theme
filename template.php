@@ -26,5 +26,6 @@ require('includes/islandora_bookmark.php');
 require('includes/islandora_book.php');
 require('includes/islandora_breadcrumb.php');
 require('includes/islandora_remote_media.php');
+require('includes/islandora_pdf.php');
 
 ?>
