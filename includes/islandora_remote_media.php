@@ -121,7 +121,7 @@ function pld_preprocess_islandora_remote_media(array &$variables) {
       $object_url =  $path .'/islandora/object/'.$obj_pid;
 
 
-      $facebook_button = '<div id="fb-share" data-url="'.$object_url.'" data-title="'.$object->label.'" data-descrip="'.$variables['description'].'" data-image="'.$object_url. '/datastream/OBJ/view" data-width="520" data-height="350"><i class="fab fa-facebook-f"></i></div>';
+      $facebook_button = '<div id="fb-share" data-url="'.$object_url.'" data-title="'.$object->label.'" data-descrip="'.$object->label.'" data-image="'.$object_url. '/datastream/OBJ/view" data-width="520" data-height="350"><i class="fab fa-facebook-f"></i></div>';
 
       $variables['facebook_button'] = $facebook_button;
 
