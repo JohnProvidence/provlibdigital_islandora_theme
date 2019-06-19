@@ -41,7 +41,7 @@
 <?php if($variables['parent_collection'] != NULL): ?>
     <div class="parent-collection-info__wrapper">
       <h3>In Collection: <a href="<?php print $variables['parent_url']; ?>"><?php print $variables['parent_collection']; ?></a></h3>
-      <?php if($variables['collection_finding_aid_button'] != NULL) {
+      <?php if(isset($variables['collection_finding_aid_button'])) {
         print $variables['collection_finding_aid_button'];
       }  ?>
     </div>
