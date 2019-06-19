@@ -1,0 +1,9 @@
+.islandora-pdf-content-wrapper {
+  .islandora-pdf-content {
+    background: transparent;
+    border: solid thin transparent;
+    img {
+      border: solid thin $adminBlue;
+    }
+  }
+}
