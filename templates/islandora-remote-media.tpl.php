@@ -33,9 +33,11 @@
         <?php print $islandora_content; ?>
       </div>
     <?php endif; ?>
+    <?php if(isset($variables['item_description'])): ?>
     <div class="islandora-basic-image-description">
-       <?php print $variables['description']; ?>
+       <?php print $variables['item_description']; ?>
    </div>
+   <?php endif; ?>
 </div>
 
 <?php if($variables['parent_collection'] != NULL): ?>

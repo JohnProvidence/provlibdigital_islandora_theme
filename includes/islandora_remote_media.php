@@ -52,8 +52,12 @@ function pld_preprocess_islandora_remote_media(array &$variables) {
     $copyright = $object->getDatastream('COPYRIGHT');
     $copyright_image = drupal_get_path('theme', 'pld') . '/img/image_under_copyright.png';
 
+    $dc_content = $dc->content;
+    $dc_object = DublinCore::importFromXMLString($dc_content);
+    $dc_object = $dc_object->asArray();
 
-
+    $variables['item_description'] = $dc_object['dc:description']['value'];
+    
     // generate datastream buttons
     if(isset($mods)):
       $mods_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/MODS/view" download="'.$obj_pid.'-'.$object->label.'/_MODS.xml">Download MODS XML</a> <i class="fas fa-file-download"></i></div>';
