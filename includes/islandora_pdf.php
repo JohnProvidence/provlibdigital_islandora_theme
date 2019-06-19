@@ -34,9 +34,9 @@ function pld_preprocess_islandora_pdf(&$variables) {
   // get datastreams to generate download buttons
   $obj_pid = $islandora_object->id;
   $object = islandora_object_load($obj_pid);
-  $mods = $islandora_object->getDatastream('MODS');
-  $dc = $islandora_object->getDatastream('DC');
-  $copyright = $islandor_object->getDatastream('COPYRIGHT');
+  $mods = $object->getDatastream('MODS');
+  $dc = $object->getDatastream('DC');
+  $copyright = $object->getDatastream('COPYRIGHT');
   $copyright_image = drupal_get_path('theme', 'pld') . '/img/image_under_copyright.png';
 
   $dc_content = $dc->content;
