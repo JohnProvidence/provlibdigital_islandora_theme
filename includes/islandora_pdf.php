@@ -11,7 +11,6 @@ function pld_preprocess_islandora_pdf(&$variables) {
   module_load_include('inc', 'islandora', 'includes/datastream');
   module_load_include('inc', 'islandora', 'includes/utilities');
   module_load_include('inc', 'islandora', 'includes/metadata');
-
   // We should eventually remove the DC object and dc_array code as it only
   // exists to not break legacy implementations.
   try {
@@ -38,23 +37,33 @@ function pld_preprocess_islandora_pdf(&$variables) {
   $dc = $object->getDatastream('DC');
   $copyright = $object->getDatastream('COPYRIGHT');
   $copyright_image = drupal_get_path('theme', 'pld') . '/img/image_under_copyright.png';
+  $pdf = $object->getDatastream('OBJ');
+  $full_text = $object->getDatastream('FULL_TEXT');
+
 
   $dc_content = $dc->content;
   $dc_object = DublinCore::importFromXMLString($dc_content);
   $dc_object = $dc_object->asArray();
 
   $variables['item_description'] = $dc_object['dc:description']['value'];
+  $title = $islandora_object->label;
+
 
   // generate datastream buttons
+  if(isset($pdf)):
+    $mods_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/OBJ/view" download="'.$obj_pid.'-'.$islandora_object->label.'/_PDF.xml">Download PDF</a> <i class="fas fa-file-download"></i></div>';
+    $variables['pdf_btn'] = $mods_btn;
+  endif;
+
   if(isset($mods)):
-    $mods_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/MODS/view" download="'.$obj_pid.'-'.$object->label.'/_MODS.xml">Download MODS XML</a> <i class="fas fa-file-download"></i></div>';
+    $mods_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/MODS/view" download="'.$obj_pid.'-'.$islandora_object->label.'/_MODS.xml">Download MODS XML</a> <i class="fas fa-file-download"></i></div>';
   $variables['mods_btn'] = $mods_btn;
   else:
     $variables['mods_btn'] = NULL;
   endif;
 
   if(isset($dc)):
-      $dc_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/DC/view" download="'.$obj_pid.'-'.$object->label.'/_DC.xml">Download DC XML</a> <i class="fas fa-file-download"></i></div>';
+      $dc_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/DC/view" download="'.$obj_pid.'-'.$islandora_object->label.'/_DC.xml">Download DC XML</a> <i class="fas fa-file-download"></i></div>';
     $variables['dc_btn'] = $dc_btn;
   else:
       $variables['dc_btn'] = NULL;

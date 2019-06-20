@@ -38,10 +38,8 @@
 <?php endif; ?>
 
  <div class="islandora-basic-image-download-btns__wrapper">
-     <?php if (isset($islandora_download_link)): ?>
-      <div class="btn download-btn">
-       <?php print $islandora_download_link; ?>
-     </div>
+     <?php if(isset($variables['pdf_btn'])): ?>
+       <?php print $variables['pdf_btn']; ?>
      <?php endif; ?>
 
      <?php if(isset($variables['mods_btn'])): ?>
@@ -49,11 +47,11 @@
      <?php endif; ?>
 
      <?php if(isset($variables['dc_btn'])): ?>
-         <?php print $variables['dc_btn']; ?>
+        <?php print $variables['dc_btn']; ?>
      <?php endif; ?>
 
      <?php if(isset($variables['marcxml_btn'])): ?>
-           <?php print $variables['marcxml_btn']; ?>
+        <?php print $variables['marcxml_btn']; ?>
      <?php endif; ?>
  </div>
 
