@@ -51,7 +51,7 @@ function pld_preprocess_islandora_pdf(&$variables) {
 
   // generate datastream buttons
   if(isset($pdf)):
-    $mods_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/OBJ/view" download="'.$obj_pid.'-'.$islandora_object->label.'/_PDF.xml">Download PDF</a> <i class="fas fa-file-download"></i></div>';
+    $mods_btn = '<div class="btn download-btn"><a href="/islandora/object/'.$obj_pid.'/datastream/OBJ/view" download="'.$obj_pid.'-'.$islandora_object->label.'/.pdf">Download PDF</a> <i class="fas fa-file-download"></i></div>';
     $variables['pdf_btn'] = $mods_btn;
   endif;
 
